@@ -13,7 +13,7 @@ public class Quiz {
 		
 		int[][] score = new int[STUDENTS_NUM][SUBJECTS_NUM];
 		int[] sum = {0,0,0,0,0,0,0};
-		int avg = 0;
+		double avg = 0;
 		char grade = ' ';
 		
 		Scanner sc = new Scanner(System.in);
@@ -40,7 +40,7 @@ public class Quiz {
 					sum[i] += score[i][j];
 				}
 				
-				avg = sum[i]/SUBJECTS_NUM;
+				avg = (double)sum[i]/SUBJECTS_NUM;
 				
 				if (avg >= 90) {
 					grade = 'A';
@@ -56,7 +56,7 @@ public class Quiz {
 				
 				// print name, score, grade
 				System.out.println(name[i]+"님의 성적표*********");
-				System.out.println("총점 : "+ sum[i]+" 평균 : "+ avg + " 학점 : "+ grade);
+				System.out.printf("총점 : + %d 평균 : %.2f 학점 : %c", sum[i], avg , grade);
 			}
 			
 		} catch(Exception e) {
