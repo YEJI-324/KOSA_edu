@@ -30,7 +30,7 @@ public class MainEntry {
 				
 		System.out.println("pt2.toString : toString()ÀÇ ÀÇ¹Ì");
 		System.out.println(pt2.getClass().getName() + '@' + Integer.toHexString(pt2.hashCode()));
-		
+	
 		System.out.println("===================================");
 		
 		Point pt3 = new Point();
