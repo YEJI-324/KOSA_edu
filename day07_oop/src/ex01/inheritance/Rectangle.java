@@ -40,9 +40,9 @@ public class Rectangle extends Point {
 		return "Rectangle [x2=" + x2 + ", y2=" + y2 + "]";
 	}
 	
-//	public void disp() {
-//		super.disp();
-//		System.out.print(", " + x2 + ", " + y2);
-//	}
+	public void disp() {
+		super.disp();
+		System.out.print(", " + x2 + ", " + y2);
+	}
 	
 }

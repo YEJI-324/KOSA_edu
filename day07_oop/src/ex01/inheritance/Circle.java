@@ -36,9 +36,9 @@ public class Circle extends Point {
 		return "Circle [r=" + r + "]";
 	}
 	
-//	public void disp() {
-//		super.disp();
-//		System.out.print(", " + r);
-//	}
+	public void disp() {
+		super.disp();
+		System.out.print(", " + r);
+	}
 	
 }

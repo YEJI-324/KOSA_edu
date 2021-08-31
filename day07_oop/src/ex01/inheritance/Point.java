@@ -2,7 +2,8 @@ package ex01.inheritance;
 
 public class Point {
 	protected int x, y;
-
+	final double d = 5.5;
+	
 	public Point() {
 		this(0, 0);
 	}
@@ -29,9 +30,9 @@ public class Point {
 		this.y = y;
 	}
 
-//	public void disp() {
-//		System.out.print(x + ", " + y);
-//	}
+	public void disp() {
+		System.out.print(x + ", " + y);
+	}
 
 	@Override
 	public String toString() {

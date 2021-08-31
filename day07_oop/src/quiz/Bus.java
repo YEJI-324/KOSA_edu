@@ -1,6 +1,6 @@
 package quiz;
 
-public class Bus extends Trans {
+public class Bus implements Trans {
 
 	@Override
 	public void start() {

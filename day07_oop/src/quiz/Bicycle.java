@@ -1,6 +1,6 @@
 package quiz;
 
-public class Bicycle extends Trans {
+public class Bicycle implements Trans {
 
 	@Override
 	public void start() {
