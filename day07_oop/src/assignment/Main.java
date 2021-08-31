@@ -15,6 +15,5 @@ public class Main {
 		PartTime p = new PartTime("김예지", "010-0000-0000", "개발", "사원", 8, 20, 8720);
 		p.display();
 		
-		//git test
 	}
 }
