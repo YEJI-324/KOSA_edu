@@ -38,7 +38,6 @@ public class HashSetEx01 {
 		System.out.println("---------------");
 		for (Integer item : hs2) {
 			System.out.println(item);
-			
 		}
 		
 		System.out.println(hs);
