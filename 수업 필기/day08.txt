@@ -1,0 +1,100 @@
+day 08
+ > Object
+ - 객체 인스턴스
+    -> stack 영역에 객체 메모리 주소 4바이트
+    -> heap 영역에 객체 데이터 저장
+    -> 같은 클래스의 객체라도 각각 생성한 인스턴스는 다른 메모리에 저장됨.
+  - 기본 자료형
+    -> 데이터는 변수에 직접 저장됨.
+    -> stack 영역에 있다.
+  - 참조 자료형
+    -> heap 영역에 메모리가 잡힘
+    -> stack 영역에 메모리 주소 저장됨.
+
+ => equals() method를 사용
+    - 실제 heap 영역에 있는 데이터를 비교함.
+    - 대소문자 구분 x 메서드는 equalsIgnoreCase() 사용
+
+ - toString() method
+    - 객체의 메모리 주소가 나옴.
+    - override 해서 사용자 직접 설정할 수 있음.
+    - alt + shift + s -> s : 단축키로 toString() override 할 수 있음.
+
+ > Wraper class : 기본 자료형에 대응되는 클래스형 자료형
+    - java.lang 패키지
+    - int -> Integer
+    - char -> Charactor ...
+    
+    - wraper class 출력시 객체의 주소가 아닌 저장 된 값이 출력됨.
+
+ > 진수
+    - 10진수 / %d
+    - 8진수 / %o
+    - 16진수 / %x or %X
+
+ > String class
+    - 같은 값을 가지면 같은 주소를 가짐
+    - 다른 값을 가지면 다른 주소
+    - 불필요한 메모리 낭비
+     -> StringBuffer : 메모리 낭비 방지, thread사용o
+         StringBuilder는 thread 지원x
+    - String Method 사용 해봄
+
+ > StringBuffer
+    - 초기 값 : initial capacity of 16 characters
+    - capacity() 메서드로 용량 확인하면 16
+    - append() : string을 뒤로 추가
+    - 초기 용량(16)을 초과하면 두배로 넘어감. + 마지막 null 값까지,,
+      -> 34바이트가 됨. 여기서 또 두배가 되면 70
+    - trimToSize() : 용량을 길이만큼으로 맞춰줌. 메모리 낭비 방지
+    - append로 string을 추가해도 같은 위치에 저장됨.
+    - insert(특정 인덱스, 추가할 문자열) : 특정 인덱스 위치에 추가
+    - replace(시작 인덱스, 끝 인덱스, 수정할 문자열) : 수정
+    - setLength() :길이 수정
+       -> 길이를 줄여도 capacity는 그대로, 다시 원래 길이로 수정해도 잘린 스트링은 사라짐.
+
+ > Util Package
+    - Calendar
+    - Date
+    - StringTokenizer 
+     - 생성자에 (문자열, 구분자) : 구분자가 없으면 디폴트는 공백
+     - hasMoreTokens() : 다음 토큰이 있는지
+     - nextToken() : 다음 토큰
+
+ > Collection : 자바에서 자료구조 -> 모두 interface
+ 자료구조 : 데이터를 시스템에 효율적으로 저장하기 위한 방법
+  1) set : 순서x, 중복x, 데이터를 꺼내오는 메소드를 제공하지 않음 -> iterator 메소드를 이용해 데이터를 꺼내야함.
+   - HashSet
+      - 자료형 지정하지 않으면 모든 자료형 입력할 수 있음.
+      - 자료형 제한하면 해당 자료형만 입력할 수 있음.
+           HashSet<String> 이런식으로 자료형 제한
+      - HashSet 뒤에 자료형은 반드시 객체타입의 자료형만 가능
+          int -> Integer : 이렇게 wraper class로 들어가야함.
+          사용자가 만든 class 객체도 가능
+    - TreeSet
+      - 자동 정렬
+      - headSet(num) : num 미만 값 리턴
+      - tailSet(num) : num 이상 값 리턴
+  2) list : 순서o, 중복o, get메소드로 데이터 꺼내올 수 있음.
+    - 변수 -> 배열(고정길이) -> 가변길이
+    - Vector : 가변길이, 동기화 지원
+          - 초기화시 초기용량, 증가용량 설정 할 수 있음.
+              Vector<Integer>(3,4); // 초기용량은 3, 공간이 필요할 때마다 4씩 증가됨.
+          - 
+    - ArrayList : 가변길이, 동기화 지원x
+          - 초기 용량 10
+                    검색, 대량의 데이터 삽입/삭제
+    - LinkedList : data 삽임/삭제 수월함
+  3) map : <key, value>로 구성된 쌍
+               key : set type / value : list type (중복 허용)
+ 알고리즘 : 어떠한 문제를 풀어내기 위해 정해진 일련의 절차나 방법
+
+문제] Customer class
+  name, address, tel field
+  생성자 함수, set/get method
+
+  고객 추가 / 삭제 / 고객 리스트 출력 / 수정 / 프로그램 종료 출력하는 프로그램 작성하기.
+  종료하기 전까지는 메뉴를 화면에 띄우기
+  고객 리스트는 벡터로 출력
+
+ --> 성적 프로그램을 가변길이 리스트로 수정.
