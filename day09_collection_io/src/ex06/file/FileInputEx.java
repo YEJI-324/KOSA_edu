@@ -9,9 +9,9 @@ public class FileInputEx {
 		Scanner sc = new Scanner(System.in);
 		
 		try {
-			//OutputStream os = new FileOutputStream("memo.txt"); //상대경로
-			//OutputStream os = new FileOutputStream("C:\\th129_java_web_app_developer\\1_Java\\test.dat"); //절대경로
-			OutputStream os = new FileOutputStream("C:/IDE/sample.txt"); //절대경로
+			OutputStream os = new FileOutputStream("memo.txt"); //상대경로
+//			OutputStream os = new FileOutputStream("C:\\th129_java_web_app_developer\\1_Java\\test.dat"); //절대경로
+//			OutputStream os = new FileOutputStream("C:/IDE/sample.txt"); //절대경로
 			
 			while(true) {
 				System.out.println("문자열 입력 요망 : ");
