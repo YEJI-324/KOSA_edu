@@ -9,9 +9,9 @@ public class BinaryCopy {
 		File dist = new File("C:/th129_java_web_app_developer/Jellyfish.png");
 		
 		FileInputStream fis = null;
-		FileOutputStream fos = null;
+		FileOutputStream fos = null; // 파일에 입출력
 		BufferedInputStream bis = null;
-		BufferedOutputStream bos = null;
+		BufferedOutputStream bos = null; // 실제로 입출력
 		int c;
 		
 		try {

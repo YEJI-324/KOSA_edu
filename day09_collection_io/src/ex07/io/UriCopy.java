@@ -4,7 +4,7 @@ import java.net.*;
 
 public class UriCopy {
 	public static void main(String[] args) 
-			throws MalformedURLException, IOException {  //예외처리우임
+			throws MalformedURLException, IOException {  //예외처리위임
 		
 		URL url = new URL("https://www.google.com/logos/doodles/2019/2019-womens-world-cup-day-6-5696430367309824-s.png");
 		

@@ -13,6 +13,12 @@ public class FileCopy {
 		
 		long start = System.currentTimeMillis();  //시작 시간 저장
 		
+//		while(true) { // 1바이트씩 읽어서 복사,,
+//			int inputData = is.read(); 
+//			if( inputData == -1 ) break;
+//			os.write(inputData); 
+//		}
+		
 		while(true) {
 			int inputData = is.read(buffer); // buffer 크기만큼 읽어들임
 			if( inputData == -1 ) break;
