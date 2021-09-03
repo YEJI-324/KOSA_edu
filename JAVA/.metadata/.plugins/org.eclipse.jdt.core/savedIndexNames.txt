@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+C:\Users\kej98\git\KOSA_edu\.metadata\.plugins\org.eclipse.jdt.core
+1167769576.index
+2001336902.index
+1964985173.index
+636245144.index
+2924620990.index
+1812083955.index
+3272138263.index
+917579684.index
+1365384515.index
+3510563314.index

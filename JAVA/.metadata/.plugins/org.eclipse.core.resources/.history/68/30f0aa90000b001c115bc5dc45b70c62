@@ -1,0 +1,62 @@
+package assignment;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Main {
+	
+	Vector<Customer> customers = new Vector<Customer>();
+	
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int command = 0;
+
+		while (true) {
+			try {
+				System.out.println("메뉴를 선택하세요.");
+				System.out.println(" 1. 고객 추가\n 2. 고객 삭제\n 3. 고객 리스트 출력\n 4. 고객 수정\n 5. 종료");
+				command = sc.nextInt();
+				
+				switch(command) {
+				case 1:
+					addCustomer();
+					break;
+				case 2:
+					deleteCustomer();
+					break;
+				case 3:
+					printCustomer();
+					break;
+				case 4:
+					editCustomer();
+					break;
+				case 5:
+					break;
+				default:
+					System.out.println("1~5번 메뉴 중에서 선택해주세요.");
+				}
+			} catch (Exception e) {
+				System.out.println("메뉴 번호를 선택해주세요.");
+				continue;
+			}
+			
+		}
+	}
+	
+	public static void addCustomer() {
+		
+	}
+	
+	public static void deleteCustomer() {
+		
+	}
+	
+	public static void printCustomer() {
+		//use Customer.toString() method
+	}
+	
+	public static void editCustomer() {
+		
+	}
+}

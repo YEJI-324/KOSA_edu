@@ -1,0 +1,50 @@
+package assignment;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Main {
+	
+	Vector<Customer> customers = new Vector<Customer>();
+	
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int command = 0;
+
+		while (true) {
+			System.out.println("메뉴를 선택하세요.");
+			System.out.println(" 1. 고객 추가\n 2. 고객 삭제\n 3. 고객 리스트 출력\n 4. 고객 수정\n 5. 종료");
+			command = sc.nextInt();
+			
+			switch(command) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			}
+		}
+	}
+	
+	public void addCustomer() {
+		
+	}
+	
+	public void deleteCustomer() {
+		
+	}
+	
+	public void printCustomer() {
+		
+	}
+	
+	public void editCustomer() {
+		
+	}
+}
