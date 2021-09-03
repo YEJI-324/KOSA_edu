@@ -54,6 +54,12 @@ public class Main {
 	
 	public static void printCustomer() {
 		//use Customer.toString() method
+//		for()
+			
+			/*
+			 * for (Integer item : hs2) {
+			System.out.println(item);
+		}*/
 	}
 	
 	public static void editCustomer() {

@@ -1,6 +1,7 @@
 package assignment;
 
 public class Customer {
+	private int idx;
 	private String name;
 	private String address;
 	private String tel;
@@ -8,9 +9,25 @@ public class Customer {
 	public Customer() {}
 
 	public Customer(String name, String address, String tel) {
+		this.idx = idx;
 		this.name = name;
 		this.address = address;
 		this.tel = tel;
+	}
+	
+	public Customer(int idx, String name, String address, String tel) {
+		this.idx = idx;
+		this.name = name;
+		this.address = address;
+		this.tel = tel;
+	}
+	
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 
 	public String getName() {
