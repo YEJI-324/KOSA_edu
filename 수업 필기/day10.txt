@@ -1,0 +1,31 @@
+day10
+
+ > IO 
+ - binaryCopy
+ - FileCopy 함
+ - UriCopy
+    - openStream()으로 uri 경로를 읽어오겠다. -> InputStream 형태로 리턴
+ * URI vs URL vs URN
+
+ - 파일 읽어올 때 입력한 순서대로 타입 맞춰서 읽어와야함. (day10 ex06.io)
+ - 객체 타입 읽고 쓰기 : Object(Input/Output)Stream
+
+
+ - RandomAccessFile 읽기 전용 파일
+
+ > VSCode 설치
+ - 프로젝트 단위는 파일이 아니고 폴더 단위임.
+
+
+ > HTML
+    - HTML 구조 : 시작태그 끝태그
+    - <body>태그 안에 내용 작성
+    - html에 입력한 줄 바꿈은 실제 페이지에서 적용되지 않음.
+      - <p>:한 단락 바꿔줌.  <br>:쓴 만큼 줄바꿈 - 태그로 줄바꿈을 함. 
+      - <hr>: 선을 그어줌.
+    - <pre>: 입력한 대로 출력
+    - <hn>: n 은 1~6 까지 숫자는 작을수록 큼.
+    - &nbsp; 같은 특수 문자 키도 있음. 이건 \t키
+    - <a>: 링크 걸기
+    - <xmp>: 태그가 그대로 보임.
+    - <font>: 태그에는 옵션 필수 size : 1~7 숫자 클수록 큼. 디폴트는 3
