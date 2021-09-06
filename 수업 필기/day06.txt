@@ -1,0 +1,112 @@
+ > overload : //MethodEx01.java
+    함수명은 같고, 매개변수의 개수가 다르거나 매개변수의 자료형이 다른 함수
+    ex) print()
+ > 가변길이 배열 : 배열의 자료형 같아야함.
+    메서드 하나로 
+
+ > static method : 객체 생성 없이 바로 사용 가능함. 
+    // StaticMethod.java
+
+ > Instance method : 객체를 생성해고 사용해야함.(메모리 할당 필수)
+    // InstanceMethod.java
+
+
+
+
+ > OOP 객체지향
+ - class 설계
+   1) 코딩레벨
+   2) 이클립스 기반
+    
+    클래스 = 멤버변수 + 멤버함수
+     -객체의 특성을 변수로, 객체의 기능 및 동작을 함수로 구현
+      멤버변수 읽기 쓰기에 대한 멤버함수 사용
+         -getter(), setter() 메서드
+          alt + shift + s : 멤버변수 선언 후 getter, setter 생성 단축키
+    정보은식(캡슐화)
+     -encapsulation
+    접근지정자
+
+  -다형성 : 여러가지 자료형으로 나타낼 수 있음 
+    ex) print() 메서드
+ 
+ -생성자함수 constructor
+    : 클래스 객체 생성시 멤버변수 초기화
+      . 클래스명과 동일!
+      . 리턴타입 없음.
+      . 오버로드 가능 : 다형성의 대표적인 예
+      . default constructor
+        (단, 사용자가 생성자 함수를 재정의 하면 디폴트 생성자 함수 기능 상실)
+ - this : 자기자신 가리킴, 객체 생성될 때 그 객체의 시작 주소
+ - this() : 생성자함수의 다른 이름. 다른 생성자 함수 호출. 첫 출에 와야함.
+
+ > 상속 inheritance
+ - super : 부모 클래스의 멤버에 접근 할 수 있는 인스턴스
+      super() : 부모 클래스의 생성자
+ - 부모 클래스의 맴버변수 protected로 선언시 자식 클래스에서 접근 가능/ private일 때는 접근 할 수 없음.
+
+
+
+  > 디버깅(Debuging) 방법
+ 
+  > 난수 발생 - 2가지 방법
+  1) Math.random()  - java.lang
+     
+     Math.random() * n <=== 0 ~ n-1 값 추출됨
+
+  2) Random calss - java.util package
+	nextXXX();
+	    자료형
+	nextInt();
+	nextDouble(), 
+	nextFloat(),....
+
+       rand.nextInt(n);  // 0 ~ n-1 값 추출함
+
+ > overload method(중복함수)?
+   함수명은 같고, 매개변수의 개수가 다르거나 매개변수의 개수가 같다면 자료형이 다른 함수 
+
+    cf) override <--- 상속
+
+  > 가변길이 배열
+ 동일한 데이터일때 길이가 다른경우,...
+
+ - instance method : 객체 생성하고 사용해야함 (메모리상에 할당이 되어야...)
+    예) Scanner sc = new Scanner(System.in);
+           sc.nextInt(), sc.nextFloat(), sc.nextLine(),....
+          sc <--- object, instance
+  - static method : 객체 생성 없이 바로 사용 가능함
+    호출방법> objectName.methodName();
+	     className.methodName();  // 
+
+ > OOP(객체지향)
+  - class 설계
+	1) 코딩레벨
+	2) 이클립스 기반 
+
+  > Constructor(생성자) method
+     - 클래스명과 동일하다.
+     - 리턴타입 없음( void 조차 사용하지 않음 )
+     -  중복정의 가능함( overload 가능 - 중복함수)
+     - default constructor 갖고 있음
+       (단, 사용자가 생성자 함수를 재정의 하면 디폴트 생성자 함수 기능 상실함 )
+     - 멤버변수의 초기화 담당
+
+  > this : 자기자신, 객체 생성 될때 그 객체의 시작 주소
+         this() : 생성자함수의 다른 이름
+
+ > inheritance(상속)
+   - extends
+   - 단일 상속만 지원
+   - super 
+   - 재사용
+   - 확장 
+
+형식> 
+ class Super {  // 부모 클래스
+
+ }
+
+ class Sub  extends  Super {  // 자식클래스 
+
+ }
