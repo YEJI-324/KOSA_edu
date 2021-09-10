@@ -1,0 +1,30 @@
+day 11 - 210906
+
+ > HTML 기본 문법
+
+ - 구조
+<!DOCTYPE html>
+<html>
+<head>
+ <title> TITLE </title>
+</head>
+<body>
+
+</body>
+</html>
+
+ - CSS : 디자인
+ - JavaScript : 동적인 기능 - 이벤트, 유효성 검사
+
+ - bootstrap : 미리 만들어진걸,,,,, 가져오기 쌉가능
+
+ > 팀과제 : 디자인 패턴
+ - Singleton 패턴
+ > 공통 과제 : 데이터베이스
+ - 데이터베이스 종류(ORDBMS,NoSQL) 및 장단점
+ - DML, DCL, DDL 명령어 형식
+ - 주요 용어 조사
+
+ > 과제
+ 1. 달력 만들기
+ 2. 음원 차트

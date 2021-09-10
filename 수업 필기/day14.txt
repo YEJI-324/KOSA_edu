@@ -1,0 +1,93 @@
+day 14
+
+ > 변수 유효범위
+    - const, let : 블럭레벨, 선언되어 있는 블럭 안에서 유효함.
+    - var : 함수레벨, 함수 내부에 어디에든 있으면 유효함.
+
+ > 함수
+ - function name(매개변수 있/없){리턴 있/없} : 함수 선언
+ - 함수내부에 함수
+    - console.log(sum(1,3) + sum(10,20))
+ - const sum = function() {~~} : 함수 구현
+    - sum이라는 변수에 함수값 저장.
+ - 매개변수 없이 함수를 선언해도 자바스크립트 내부의 변수 arguments를 사용하면 값을 전달할 수 있음.
+ - 화살표 함수,,,,,,,,? 람다함수인가,,,,,,,,,
+    람다함수는 인자를 다뤄도 되지만 그냥 다른 값을 리턴해도 됨.(실수, 정수, 배열, 객체가능)
+    () => {} vs function() { } (이건 익명함수)
+    주로 한번 쓰고 버릴 때 arrow function 사용
+    함수가 바로 리턴만 한다면 : () => 리턴값 가능
+ - 즉시 실행 함수
+    (function() { //statement}) ()
+
+ - 타이머 함수
+    - setTimeout(함수, 시간) : 일정 시간 후 함수 실행
+    - setInterval(함수, 시간) : 일정 시간간 마다 함수 실행
+    - clearTimeout() : 설정된 timeout 함수 종료
+    - clearInterval : 설정된 interval 함수 종료
+
+ > class
+1) 리터럴 방식
+2) 함수 방식
+3) 프로토타입 방식
+1)
+const 인스턴스 = {
+    프로퍼티1 : 초기값,
+    프로퍼티2 : 초기값,
+    메소드1 : function() {
+
+    },
+    메소드2 : function() {
+
+    }
+}
+
+2)
+function 클래스이름() {
+    this.프로퍼티1 = 초기값;
+    this.프로퍼티2 = 초기값;
+
+    this.메소드1 = function() {
+
+    }
+
+    this.메소드2 = function() {
+
+    }
+}
+
+const 인스턴스 = new 클래스이름();
+
+3)
+function 클래스이름() {
+    this.프로퍼티1 = 초기값;
+    this.프로퍼티2 = 초기값;
+
+    클래스이름.prototype.메소드1 = function() {
+
+    }
+
+    클래스이름.prototype.메소드2 = function() {
+
+    }
+}
+
+문제] Emp 클래스 - 사번, 사원명, output 메소드(전체 출력)
+출력메소드 안에 일정 시간 뒤에 setTimeout으로 새로 객체 만들기
+
+
+mdn
+-String.prototype:인스턴스가 생성된 뒤 호출할 수 있음.
+- indexOf : 원하는 값이 없을 때는 -1을 리턴
+- lastIndexOf
+- slice
+
+- match() : 문자열이 정규식과 매치되는 부분을 찾음.
+   정규식은 RegExp
+- trim() : 공백 자름
+- replace(oldWord, newWord) : 단어 교체
+
+-Math:인스턴스 생성없이 호출 가능. static이라는 의미
+
+-Array
+- find() : 원하는 조건에 맞는 첫 번째 요소를 리턴, 없으면 undefined 리턴
+

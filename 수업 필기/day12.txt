@@ -1,0 +1,255 @@
+>> day12 -21/09/07
+
+ > HTML & CSS & JS 문법 
+
+
+----------------------------------------------------------
+>> 팀과제 : 매주 월요일 오후 2:10~ 부터 진행
+   <2번째 과제 : Design Pattern >
+     1팀 : 재혁팀 - Abstract Factor
+     2팀 : 철호팀 - Factory Method 
+     3팀 : 성호팀 - Singleton
+     4팀 : 상옥팀 - Proxy
+     5팀 : 병민팀 - Factory Pattern
+     6팀 : 재후팀 - Decorator 
+
+  < 3번째 과제 : DataBase >
+ >> 통합 과제 - 데이터베이스 종류(ORDBMS,NoSQL) 및 장단점 ,
+	        DML(select, insert, update, delete), DCL, DDL 명령어 형식 
+	        주요 용어 조사  
+
+=========================================
+>> day11 -21/09/06
+
+  > HTML 기본 문법
+
+ > 검색어 :  reset css cdn
+  https://www.jsdelivr.com/package/npm/reset-css
+
+ > emmit(에밋) 코드 예제
+ 참고 사이트 : https://ko.wikipedia.org/wiki/%EC%97%90%EB%B0%8B_(%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4)
+	https://velog.io/@rain98/VSCode-Emmet-%EC%82%AC%EC%9A%A9%EB%B2%95
+
+  div#page : <div id="page"></div>를 생성해 준다.
+  div.logo : <div class="logo"></div>를 생성해 준다.
+  ul#navigation : <ul id="navigation"></ul>를 생성해 준다.
+  li*5 : <li></li>를 5번 반복해서 생성해 준다.
+  a : <a href=""></a>를 생성해 준다.
+
+
+ - Server Side Script :
+ - Client Side Script  <----- 서버 구축 안되어 있어도 실행됨. 브라우저가 해석하기 때문에 웹브라우저만 있으면 실행됨
+    --> 편집기 : 메모장, 에디터플러스, 울트라에디트,...한글,....이클립스 등등에서 편집가능함
+
+ >  주석   <!--   html 주석 -->
+
+  태그 속성="값"
+ 예) <font size="5" color="red">글자</font>
+
+ >  css 적용한 경우    
+   1) inline
+   <img src="../images/1.jpg" style="border: 3px solid; ">
+  <img src="Flower2.jpg" style="속성: 값; 속성: 값;..... ">
+ 2) internal
+ 3) external  <---- file.css
+ <!-- css 외부 파일 링크  -->
+  <link rel="stylesheet"  href="../css/myStyle.css"  type="text/css">
+
+   선택자 { 속성: 값; 속성: 값; ..... }
+   선택자, 선택자2, 선택자3... { 속성: 값; 속성: 값; ..... }
+   선택자 서브엘리먼트 { 속성: 값; 속성: 값; ..... }
+   p  em { 속성: 값; 속성: 값; ..... }
+   div  span { 속성: 값; 속성: 값; ..... }
+
+   .className { 속성: 값; 속성: 값; ..... }
+   ex) .red { color : red; } 
+   선택자.className { 속성: 값; 속성: 값; ..... }
+   ex) p.blue { 속성: 값; 속성: 값; ..... }
+
+
+   #idName { 속성: 값; 속성: 값; ..... }
+   ex) #header { 속성: 값; 속성: 값; ..... }
+        div#id { 속성: 값; 속성: 값; ..... }
+
+  <a href="site"> site </a>
+  <a href="mailto:happydoyeon88@gmail.com"> site </a>
+
+ 
+
+  html - 유연성 /  xml - 엄격함
+
+ > 웹 테스트 사이트 
+  https://codepen.io/
+  https://jsbin.com/?html,output
+
+과제] 1.달력만들기
+        2. 음악차트 만들기
+
+
+
+---------------------------------------------------------
+>> 팀과제 : 매주 월요일 오후 2:10~ 부터 진행
+   <1번째 과제 : UML >
+     1팀 : 재혁팀 - Class Diagram / Object Diagram  -  재혁
+     2팀 : 철호팀 - Use Case Diagram / Deployment Diagram - 용준
+     3팀 : 성호팀 - Sequence Diagram / Interaction Diagram - 충무/본아
+     4팀 : 상옥팀 - Collaboration Diagram / StateChart Diagram  - 상옥
+     5팀 : 병민팀 - Activity Diagram / Component Diagram  - 병민
+     6팀 : 재후팀 - Package Diagram / Timing Diagram - 병제
+
+  발표 순서 : 상옥 > 재혁 > 충무/본아 > 용준 > 병제 > 병민 
+
+==================================
+>> day10 -21/09/04
+
+ > vscode 설치 및 환경 설정
+
+ > HTML 기본 문법
+
+  - HTML  : 문서구조
+
+<!DOCTYPE >
+<html>
+ <head>
+  <title> New Document </title>
+ </head>
+ <body>
+  
+ </body>
+</html>
+
+  - CSS :  디자인 (꾸미기)
+  - JavaScript : 동적인 기능 - 이벤트, 유효성검사,...
+
+
+
+>>>>>>> 유용한 사이트 <<<<<<<<<<<<<<<<<<<<<<<<<
+
+http://www.w3schools.com/
+http://www.w3.org/
+
+http://opentutorials.org/course/1
+
+https://msdn.microsoft.com/ko-kr/library/htbw4ywd(v=vs.94).aspx
+
+>> 무료 웹 에디터 
+
+ https://brunch.co.kr/@asaroon/1
+
+ - 에디터 플러스 단축키
+  https://docs.emmet.io/cheat-sheet/
+
+>>
+ https://developer.mozilla.org/ko/docs
+
+ http://html5test.com
+
+>> 무료 동영상 강의
+ https://www.youtube.com/watch?v=jV7JHVmRl8Q&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=1
+
+
+>> 제 4장 HTML5 자바스크립트 API
+http://html5.firejune.com/doc.html
+
+>> HTML5 & CSS3 활용
+http://2107.co.kr/tacademy/
+
+>> [CSS]스크롤바 따라다니는 플로팅 메뉴 만들기(광고 및 추천 설치)
+http://cocosoft.kr/149
+
+>> tag 테스트 할 수 있는 곳 
+http://jsbin.com/
+
+https://zygotebody.com/
+
+
+>> JavaScript
+http://www.w3schools.com/js/js_examples.asp
+
+http://jqueryvalidation.org/
+
+>> FileZilla 웹 서버 (무료)
+https://filezilla-project.org/
+https://filezilla-project.org/download.php?type=client
+
+====================================================
+
+[ 웹 워커 관련 참고 사이트]
+
+>http://slides.html5rocks.com/#web-workers
+
+>http://people.mozilla.com/~prouget/demos/worker_and_simulatedannealing/index.xhtml
+
+> http://html5demos.com/worker
+> http://htmlfive.appspot.com/static/tracker1.html
+
+[ Geolocation 참고 사이트]	
+
+> http://html5demos.com/geo
+
+> http://mobile.tutsplus.com/tutorials/mobile-web-apps/html5-geolocation/
+
+> http://diveintohtml5.info/geolocation.html
+
+
+[ 드래그 랜 드롭 참고 사이트]
+
+> http://html5demos.com/drag
+
+> http://html5demos.com/drag-anything
+
+> http://html5demos.com/dnd-upload
+
+[ SVG 관련 참고 사이트]
+
+> https://developer.mozilla.org/ko/demos/tag/tech:svg
+
+> http://svg-wow.org/camera/camera.xhtml
+
+> http://svg.kvalitne.cz/worldlandmarks/worldlandmarks.svg
+
+> http://debeissat.nicolas.free.fr/svg3d.php
+
+> http://codinginparadise.org/projects/svgweb/samples/demo.html
+
+> http://lavadip.com/experiments/jigsaw/
+
+> http://upload.wikimedia.org/wikipedia/commons/6/6c/Trajans-Columnlower-animated.svg
+
+> http://svg.kvalitne.cz/ireland/irelandvacation.svg
+
+> http://www.carto.net/papers/svg/us_crime_2000/map.svgz
+
+> http://workshop.rs/projects/twings/
+
+> http://www.themaninblue.com/experiment/Blobular/
+
+> http://www.bogotobogo.com/svg_source/SVGDigitalClock.svg
+
+[Canvas관련 참고 사이트]
+
+> http://www.feedtank.com/labs/html_canvas/
+
+> http://www.andrew-hoyer.com/experiments/cloth
+
+> http://www.nihilogic.dk/labs/strange_attractors/
+
+> http://www.professorcloud.com/mainsite/canvas-nebula.htm
+
+> http://bomomo.com/
+
+> http://spielzeugz.de/html5/liquid-particles.html
+
+> http://hakim.se/experiments/html5/sinuous/01/
+
+> http://hakim.se/experiments/html5/blob/03/
+
+> http://gyu.que.jp/jscloth/
+
+> http://www.chromeexperiments.com/arcadefire/
+
+> http://kennethjorgensen.com/canvas/tree.html
+
+=========================================
+> 동강
+https://www.youtube.com/playlist?list=PLMp7xXc5vT2NPclzxmAWbAw51zA_Z3dSy
