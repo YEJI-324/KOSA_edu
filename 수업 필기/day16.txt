@@ -1,0 +1,66 @@
+[day 16] 210913
+
+> 라이브러리 가져오기
+ ex) Swiper
+  1. get started
+    - npm : install
+    - CDN : 링크를 걸어줌.
+  2. API
+    - event 문서
+    - demo에서 기능 확인할 수 있음.
+  3. Swiper 라이브러리 메서드,? 설명
+
+> 버튼
+  - 공통 사항을 미리 css 상단에 입력
+  - COMMON 부문에 문서 전체에 적용되는 속성을 설정
+  - inner : inner클래스 전체에 적용
+
+> random function으로 떠다니는 요소 만들기
+
+> calc : 영역 자동으로 계산해줌.
+
+> gsap easing
+  https://greensock.com/docs/v2/Easing
+  - gasp.to(요소, 시간, 옵션)
+  - gasp.to(요소, 옵션) -> 시간은 디폴트값으로
+
+> youtube
+  youtube IFramePlayer API
+  https://developers.google.com/youtube/iframe_api_reference?hl=ko
+
+> html-ex06_imageSize
+  - marquee 태그
+    - 스크롤되는 태그
+> html-ex13_array
+> html-ex14_object
+  - js에서는 this를 생략하면 멤버변수 값을 가져오지 못함.
+  - with(this)로 묶으면 this 생략할 수 있음.
+
+> html5
+  - canvas가 추가됨.
+  - 어느 위치에 해당 크기만큼의 캔버스 그림
+  - js로 context 생성 -> 그리기 -> 출력:stroke() (html5/canvas/canvas1.html)
+  - 좌표 원점(0,0) : 좌측 상단
+
+  - drag & draw
+  - element
+    @IMPORT "common.css" 으로 css 파일 적용할 수 있음.
+    css내부에서 @import url("css파일 경로") 이렇게도 불러올 수 있음.
+
+
+> 디자인 패턴 : 객체 지향 프로그래밍 설계할 때 자주 발생하는 문제를 피하기 위해 사용되는 표준패턴.
+  - Decorator Pattern
+  - Singleton Pattern
+  - Proxy Pattern : 어떤 객체에 대한 접근을 제어하기 위한 용도로 대리인이나 대변인에 해당하는 객체를 제공하는 패턴
+      - 가벼운 기능을 Proxy에서 대신 수행, 무거운 일은 Real에서 수행: 필요할 때만 호출
+      - 기능의 무게가 큰 일을 수행할 때, 많은 기능을 한번에 수행할 때 -> 분업하도록 하는 패턴
+      - 나중에 스프링 할 때,,,,,
+  - Abstract Factory Pattern
+  - Factory Pattern
+
+> 데이터베이스
+  - DCL
+  - DML
+  - DDL
+  - TCL
+  
