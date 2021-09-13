@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>�� ���丮�� �׽�Ʈ</title>
+</head>
+<body>
+<textarea id="ta"></textarea>
+
+<script type="text/javascript">
+	try{
+		var area = document.querySelector('#ta');
+		//���� �� ������ ����
+		if ( !area.value ) {
+			area.value = window.localStorage.getItem('value');
+		}
+		
+		//������ ���� ����
+		area.addEventListener('keyup', function(){
+			window.localStorage.setItem('value', area.value);
+			window.localStorage.setItem('timestamp', (new Date()).getTime() );
+		}, false );
+		
+	}catch(ex) {
+		alert("���� �������� ���� �����丮���� �������� �ʽ��ϴ�.");
+	}
+</script>
+
+<input type="text"  >
+
+</body>
+</html>
+
+
+
