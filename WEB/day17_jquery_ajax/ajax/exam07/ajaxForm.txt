@@ -48,18 +48,18 @@
 				</div>
 				
 				<p style="text-align: right;" data-role="navbar">
-					<a href="#"  data-icon="arrow-u" class="ui-btn" id="btn1">аж╧╝х╝юн</a>
+					<a href="#"  data-icon="arrow-u" class="ui-btn" id="btn1">Лё╪К╛╦М≥∙Л²╦</a>
 				</p>
 			</form> 
 			
 			<div data-role="fieldcontain">
-				<label>╟А╟З : </label>
+				<label>Й╡╟ЙЁ╪ : </label>
 				<textarea rows="5" cols="10" id="result"  readonly="readonly"></textarea>
 			</div>
 		</div>
 		
 		<div data-role="footer">
-			<h3>(аж)KOSTA аж╫дх╦╩Г</h3>
+			<h3>(Лё╪)KOSTA Лё╪Л▀²М ▄Л┌╛</h3>
 		</div>
 	</div>
 </body>

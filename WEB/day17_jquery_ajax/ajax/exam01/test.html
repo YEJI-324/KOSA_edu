@@ -7,7 +7,7 @@
 	var httpRequest = null;
 	
 	function requestMsg() {
-		//1´Ü°è : XMLHttpRequest °´Ã¼ »ı¼º
+		//1ë‹¨ê³„ : XMLHttpRequest ê°ì²´ ìƒì„±
 		if( window.XMLHttpRequest ) {  //chrome, firefox, safri,....
 			httpRequest = new XMLHttpRequest();
 		}else if( window.ActiveXObject ) {  //IE
@@ -16,21 +16,21 @@
 			httpRequest = null;
 		}
 	 
-	  //2´Ü°è : ¼­¹ö¿¡¼­ ÀÀ´äÇØÁØ °á°ú¸¦ Ã³¸®ÇÒ ¼ö ÀÖ´Â callbackÇÔ¼ö¸¦ ¼³Á¤
+	  //2ë‹¨ê³„ : ì„œë²„ì—ì„œ ì‘ë‹µí•´ì¤€ ê²°ê³¼ë¥¼ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” callbackí•¨ìˆ˜ë¥¼ ì„¤ì •
 		httpRequest.onreadystatechange = responseMsg;
 		
-		//3´Ü°è : ÃÊ±âÈ­ ÀÛ¾÷(open())À» ÇÑÈÄ, XMLHttpRequest°´Ã¼°¡ ¼­¹ö¿¡°Ô ¿äÃ»(send() )
+		//3ë‹¨ê³„ : ì´ˆê¸°í™” ì‘ì—…(open())ì„ í•œí›„, XMLHttpRequestê°ì²´ê°€ ì„œë²„ì—ê²Œ ìš”ì²­(send() )
 		/* httpRequest.open('GET', 'hello.html', true); */
 		httpRequest.open('GET', 'hello.html', true);
 		httpRequest.send(null);
 		
 		function responseMsg() {
-			//4´Ü°è : ¼­¹ö¿¡¼­ ÀÀ´äÇÑ °á°ú¸¦ Ã³¸®
-			// ¼­¹ö¿¡¼­ ÀÀ´äÀ» ¿Ï·áÇß°í, ¿Ã¹Ù¸¥ ÀÀ´ä °á°ú°¡ ³¯¾Æ¿Â °æ¿ì
+			//4ë‹¨ê³„ : ì„œë²„ì—ì„œ ì‘ë‹µí•œ ê²°ê³¼ë¥¼ ì²˜ë¦¬
+			// ì„œë²„ì—ì„œ ì‘ë‹µì„ ì™„ë£Œí–ˆê³ , ì˜¬ë°”ë¥¸ ì‘ë‹µ ê²°ê³¼ê°€ ë‚ ì•„ì˜¨ ê²½ìš°
 			if( httpRequest.readyState == 4 ) {
 				if( httpRequest.status == 200 ) {
 					
-					//5´Ü°è : ¼­¹ö¿¡¼­ ³¯¾Æ¿Â ÀÀ´ä °á°ú¸¦ client ºê¶ó¿ìÀú¿¡ Àû¿ë
+					//5ë‹¨ê³„ : ì„œë²„ì—ì„œ ë‚ ì•„ì˜¨ ì‘ë‹µ ê²°ê³¼ë¥¼ client ë¸Œë¼ìš°ì €ì— ì ìš©
 					var msgView = document.getElementById("msgView");
 					msgView.innerHTML = httpRequest.responseText;
 					
@@ -43,9 +43,9 @@
 </script>
 </head>
 <body>
-	<h1>¼­¹ö¿¡¼­ ¹ŞÀº ¸Ş¼¼Áö</h1>
+	<h1>ì„œë²„ì—ì„œ ë°›ì€ ë©”ì„¸ì§€</h1>
 	<div id="msgView" style="height: 100px; width: 500px; border: 1px solid black"></div>
-	<input type="button" value="¼­¹ö¿¡¼­ ÀÚ·á ¿äÃ»" onclick="requestMsg()" />
+	<input type="button" value="ì„œë²„ì—ì„œ ìë£Œ ìš”ì²­" onclick="requestMsg()" />
 </body>
 </html>
 
