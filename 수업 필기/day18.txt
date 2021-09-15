@@ -1,0 +1,61 @@
+[day18] 210915
+
+Spring
+
+> tomcat apache 서버 설정
+
+> jsp
+  - <% 시작 태그, %> 끝 태그
+  - page, include, taglib
+  - java package import는 <%@ page import="java.util.*" %>
+
+> client side : 내가 실행하는 브라우저가 해석
+> server side : 서버에서 해석 끝낸 상태에서 나옴 -> 웹에서 태그 안보임
+
+spring legacy project
+- spring MVC project
+- project name : sp01_springMVC
+- next
+- package name : kr.edu.kosa
+
+> pom.xml
+  - xml문서는 윗줄에 공백 들어가면 안됨. xml버전과 인코딩타입
+  - root element : project
+ 
+> spring MVC 생명주기
+
+> HomeController
+  - Model 객체를 만들어서 변수를 추가 addAttribute
+  - {$변수명} : 변수 가져옴.
+  - HomeController에서 리턴하는 jsp변경함
+  - src>main>webapp>spring>appServlet>servlet-context.xml에서 연결할 폴더 수정
+    - Internal Resource View Resolver
+    - servlet-context.xml.이 web.xml 종속성에 추가되어있어야함.
+
+
+> 내일은 문법부터 시작함
+1. DI (IoC)
+2. AOP
+
+- 용어조사 과제
+ Framework
+ bean
+ DI(Dependency Injection)- IoC
+ AOP(Aspect Oriented Programming)
+ POJO
+ proxy or proxy 우회
+ Validation
+ HandlerMapping
+ Dispatcher Servlet
+ Spring MVC Life Cycle
+ ContextLoaderListener
+ 패턴매칭
+
+ JoinPoint
+ Pointcut
+ Aspect
+ Advice
+ Weaving
+
+ expression
+ Annotation

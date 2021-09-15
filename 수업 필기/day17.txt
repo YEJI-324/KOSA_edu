@@ -1,0 +1,10 @@
+[day17] 210914
+
+> jQuery & AJAX
+ http://jquery.com/
+
+ 1) file download - jQuery 페이지에서 다운로드
+ 2) CDN 방식
+
+ - $() : method
+ - tag:selector
