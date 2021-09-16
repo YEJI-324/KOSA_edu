@@ -1,0 +1,165 @@
+[day19] 210916
+
+> spring MVC
+
+> POM 파일 구성 요소 참고 사이트
+https://maven.apache.org/pom.html#What_is_the_POM
+
+> maven 구조
+  - java 코드
+  - 서버 실행시 필요한 리소스 경로
+  - web 코드
+  - 사용자 폴더 등록 -> default-servlet-handler
+
+user folder -> servlet-context.xml에 등록해주어야함.
+- <resources mapping="/사용자 폴더/**" location="/사용자 폴더/" />
+-> 일일히 추가X
+-> <default-servlet-handler/> : 
+
+>Dynamic Web Project 생성
+- 프로젝트 이름 설정
+- target runtime : Apache Tomcat 서버 설정
+- dynamic web module version : servlet version을 의미함.
+- web.xml : 7.0버전부터 annotation 기반 -> 기본 체크 안돼있음.
+- webContent
+- webContent 폴더에 META-INF, WEB-INF 두개 있음.
+
+> 경로 지정에 대한 설정
+- jsp파일에서 빌드하면 /jsp/main.jsp로 경로뜸.
+- tag lib이용해서 경로를 표시할 것.
+
+> jsp에서 자바코드 사용하는 방법 (3장)
+- 선언문 <%! %>
+- 스크립트릿 <% %> : 함수 선언 할 수 없음.
+- 표현식 <%= %> : 종결문자 ';' 쓰면 안됨.
+
+> 내장객체 Built-in Object [9개] (4장)
+- 변수 선언 없이 사용가능한 객체
+1. 입출력 관련
+2. 외부 환경 정보 제공
+3. 서블릿 관련
+4. 예외 관련
+
+> model 2 : MVC
+이거 설명함.
+https://hsp1116.tistory.com/9
+
+  >> 서블릿 동작원리 (2장)
+- 22 슬라이드
+- instance 생성 
+-> init() :최초로 한번만 호출 
+-> service():doGET(), doPOST() : 요청될 때마다 호출됨 
+-> destroy() : 톰캣 해제시 자원 해제
+
+
+- 위치 : 워크스페이스에서 > .metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\day19_web\org\apache\jsp\jsp
+- main_jsp.java파일 보면 서블릿 생명주기에 따라 init, service, destroy 메소드 있음. + jsp이기 때문에 _jsp가 붙어있음.
+- Service 메소드 내부에 내장객체가 있음.
+
+
+> 내장객체 관련 코딩 실습
+- 경로 확인하기
+<%= request.getContextPath() %> : 프로젝트 이름
+<%= request.getRequestURL() %><br> : 전체 경로
+<%= request.getServletPath() %><br> : 폴더, 패키지명
+<%= application.getContextPath() %><br>
+<%= pageContext.getServletContext().getContextPath() %>
+-> 이 메소드를 사용해 경로를 자동화할 수 있다.
+- html에는 태그만 남기는 것을 권장함. -> <% %>를 ${}(EL, 표현식)로 대체 할 수 있음 (15장)
+    - 파일 상단에 jstl을 가져와야함.
+      1. 라이브러리 lib 폴더에 넣는 방법 -> 지금은 이걸로 함.
+      2. Maven으로 만들어서 Dependency 추가하는 방법
+    - mvnrepository에서 jstl 다운로드 -> lib에 추가
+    -><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> jstl을 연결해준다.
+    -><c:set var="path" value="${pageContext.request.contextPath}/resources" scope="application"/> : path 를 선언하고-> %{path}이렇게 사용 가능
+    - 연산자는 java와 비슷, 슬라이드 6 확인해야함.
+      - servlet scope 공부하기! https://erjuer.tistory.com/21
+
+> Spring Framework (1_spring\spring.pdf에서 슬라이드 30부터)
+- Spring 쓰기 전에 사용하던 EJB가 너무 무거워서 스프링이 나옴.
+- POJO, AOP, DI, IoC : 스프링에서 알아야할 개념
+- 프레임워크 구조 
+    - DAO에서 Spring JDBC연결할 것
+    - ORM : myBatics
+    - Core : IoC
+    -... 등등 구조, 개념 알아두기
+
+> java에서 DI
+[ex01.di] : has-a 관계
+1. DTO class 생성(NewRecord)
+  - data trasfer object : 프로세스 간에 데이터를 전달하는 객체
+  - 멤버변수, getter&setter, consturctor, total&avg method
+2. view class 생성(NewRecordView)
+  - member variable : DTO class' instance
+  - constructor : initalize instance
+  - member method : print method
+  - is-a:상속, has-a:포함 -> NewRecordView는 NewRecord를 포함관계(has-a)
+3. main에서 view instance 생성
+  - View 객체 생성 -> View의 print() 메서드 사용
+[ex02.di] : setter method 이용
+- 객체의 생성이 서로 독립적
+- 필요시 객체 주소만 주입
+1. DTO 그대로
+2. View class에서 DTO 객체 생성하지 않고 setter method 이용
+3. main에서 view, DTO 객체 각각 생성
+  - view에 DTO 객체 전달 : setter method 이용해서
+[ex03.di] : interface -> 이게 가장 결합도를 낮추는 방식
+1. IRecord : 합, 평균 구하는 메소드가지고 있는 interface
+2. IRecordView : 데이터 입출력하는 메소드가지고 있는 interface
+3. interface를 구현하는 클래스 만들어서 오버라이드하기.
+  - 여기에 원하는 데이터 멤버변수 선언, constructor, setter/getter
+  - IRecordImpl : IRecord 구현
+  - IRecordViewImpl : IRecordView 구현 
+    - 여기는 setter 만들기
+    - input(), print() method 구현하기
+4. main에서 각 클래스 객체 만든 뒤, View클래스에 record 객체 주입하면 됨.
+
+> spring에서 DI
+[ex04.spring.di] : setter로 DI 하는 방법
+1. ex03이랑 비슷하게 interface이용해서 생성
+2. 스프링 기반이라면 객체 생성을 new로 하지 않고 bean으로 객체 생성한다.
+아마 이런 거일듯 https://araikuma.tistory.com/291
+3. bean으로 하기 위해서는 xml 설정파일이 필요함. (spring.pdf - slide 38)
+  - BeanFactory : Spring IoC Container의 기능을 정의하고 있는 기본 인터페이스
+  - BeanFactory인터페이스를 상속받는 클래스 아주 많음.
+  - 그 중에서 ApplicationContext를 사용하는게 권장됨. 
+    (springframework.pdf - slide 13)
+    1. BeanFactory(I) : 빈객체를 관리하고 각 빈 객체간의 의존관계를 설정해주는 기능 제공. XmlBeanFactory
+    2. ApplicationContext(I) : BeanFactory 기능에 다양한 추가기능 제공. ClassPathXmlApplicationContext
+    3. WebApplictaionContext(I) : Web application용 ApplicationContext. Web Application당 하나씩 생성. XmlWebApplicationContext/AnnotationConfigWebApplicationContext.
+  - 주입하는 방법은 두가지.
+    - 파일로 등록하는 방법 -> lib폴더 만들어서,,,,,, 직접 jar 파일 넣고,,, 뭐 그런거
+    - maven 사용하기 : 우클릭>configure>Convert to Maven Proejct -> 이러면 pom.xml이 생김.
+      - 스프링으로 바꾸기 위해서는 : 우클릭>Spring>Add Spring Project Nature
+  - MVNRepository에서 Spring Context 검색 > dependencies태그 추가하고 복사해온 dependency 붙여넣기 -> java를 위한 라이브러리 말고 spring을 위한 라이브러리가 생김.
+4. main에 설정하기
+- ApplicationContext context = new ClassPathXmlApplicationContext(여기엔 bean 생성 설정 파일 경로, 파일명을 지정한다);
+- IRecordViewImpl view = context.getBean(빈_이름);으로 객체를 가져온다.
+- view사용하면 됨.
+5. 이제 bean에서 객체 만들기
+- Spring Bean Configuration file 선택 > Spring Bean Definition file 생성 : 아무것도 설정안해도 디폴트로 bean이 설정됨~
+- <bean>으로 객체 생성
+- 객체 생성할 class, id 설정하기
+    - <bean class="ex04.spring.di.IRecordViewImpl" id="record"></bean>
+    - id : 인스턴스 명, class: 객체 생성할 class
+    - 값을 전달하는 방법은 constructor, setter이용하는 두가지 방법 지금은 setter
+    - setter는 property를 사용.
+      - name : setter method/set을 떼어낸 소문자 명칭,,,,,,, setRecord > record
+      - ref : 참조할 객체,,? view에서는 record
+6. 다시 main으로 와서 context.xml연결하기!!!
+- appContext.xml파일이 bean있는 xml파일임.
+- context.getBean()으로 객체를 가져옴.
+- "view"를 가져오면 리턴 타입이 Object이므로 형변환이 필요하다.
+  1. IRecordViewImpl view = (IRecordViewImpl) context.getBean("view");
+  2. IRecordViewImpl view = context.getBean("view", IRecordViewImpl.class);
+[ex04.spring.di] : contructor로 DI 하는 방법 - IRecordImpl로 함.
+1. appContext.xml 에 IRecordImpl 객체 생성
+2. constructor-arg로 생성자에 값 넘겨줌.
+  - value 속성으로 값 입력. 순서대로 입력됨. <constructor-arg value="50"/>	
+  - name 속성에 입력할 변수 설정할 수 있음. <constructor-arg value="50" name="kor"/>
+  - index 속성으로 인덱스로 입력할 변수 설정할 수 있음.
+<constructor-arg value="50" index="1"/>	
+
+> appContext.xml 위치
+- 패키지의 상위폴더(src)에 두면 파일명만 입력해도 됨. "appContext.xml"
+- 패키지내부에 xml을 두면 경로지정을 ../이런식이 아닌 /로 처음부터 경로를 설정한다. "ex04/spring/di/appContext.xml"이렇게~!~!
