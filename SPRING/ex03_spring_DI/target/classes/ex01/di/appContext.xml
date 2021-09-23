@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- <bean id="messageBeanImpl" class="ex01.di.MessageBeanImpl">
+	<constructor-arg value="yeri"></constructor-arg>
+	<constructor-arg><value>hello</value></constructor-arg>
+</bean> -->
+
+<bean id="messageBeanImpl" class="ex01.di.MessageBeanImpl">
+	<property name="name"><value>yeri</value></property>
+	<property name="greeting"><value>hello</value></property>
+</bean>
+
+</beans>
