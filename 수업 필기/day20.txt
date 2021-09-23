@@ -1,0 +1,29 @@
+f[day20] 210917
+
+1교시는 어제내용 복습함.
+
+2교시
+스프링으로 세팅함
+
+> DI 함.
+1. constructor를 사용하는 방법
+2. setter method를 사용하는 방법
+
+> Bean 정의 (spring.pdf - slide 41)
+- 속성들
+
+> Main에서 context 설정하는 방법.
+- ApplicationContext context = new ClassPathXmlApplicationContext("ex01/di/appContext.xml"); // 일반적
+- ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"ex01/di/appContext.xml", "ex01/di/applicationContext.xml"}); // 이렇게 하면 여러 context파일을 만들었을 때 이중에서 가져온다~~~ 할 수 있음.
+
+> 스프링 싱글턴 그런 얘기도 했음...
+
+> annotation 기반 DI
+- xml으로 만들던 context설정파일을 java로 만든다.
+- ApplicationContext.java
+  - 설정파일이라는 annotaion : @Configuration을 추가
+  - 클래스에 대한 bean을 설정하기
+  - MyCats 객체를 리턴하는 메서드 생성,,? 필드 값 설정하고 리턴하기.
+    - 선언부 위에 @Bean annotaion을 추가해주면 객체 생성!
+  - Main함수 만들기
+    - (springframework.pdf - slide 1)AnnotationConfigWebApplication을 사용해 context 생성
