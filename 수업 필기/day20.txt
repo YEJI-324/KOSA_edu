@@ -27,3 +27,25 @@ f[day20] 210917
     - 선언부 위에 @Bean annotaion을 추가해주면 객체 생성!
   - Main함수 만들기
     - (springframework.pdf - slide 1)AnnotationConfigWebApplication을 사용해 context 생성
+
+>> day20 -21/09/17
+
+   - DI (IoC)
+    1. constructor 이용    <constructor-arg>
+    2. setter method 이용 방법  <property>   <--- 권장
+
+  문제1] 설정파일(생성자, 셋터 메소드) 만들고, 메인구현해서 입력 받아서 출력까지하기 
+
+ > 참고 
+  https://www.slipp.net/wiki/pages/viewpage.action?pageId=25527577
+  https://docs.spring.io/spring-framework/docs/1.0.1/javadoc-api/org/springframework/context/support/AbstractApplicationContext.html
+
+ 문제2] Person interface - 움직인다, 잠을 잔다, 먹는다 는 추상메소드 구현
+   Student , Worker class 구현 - Person을 인프리먼츠해서 
+   설정파일 2가지 방법으로 만들어보기 - 1. xml ,  2. annotation 
+   
+
+
+ - POJO
+
+ - AOP
