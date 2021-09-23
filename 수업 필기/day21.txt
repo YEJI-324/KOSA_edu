@@ -1,0 +1,78 @@
+[day 20] 210913
+
+1교시 - 복습
+스프링 프레임워크
+DI - constructor/setter : setter가 권장됨.
+<bean id="인스턴스 이름" name="별칭" class="생성하는 클래스"></bean>
+
+코드로 배우는 스프링 웹 프로젝트
+
+scope : default는 singleton
+- https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch04s04.html
+
+
+> 의존성 상세 설정
+- 다른 bean에 대한 참조 : ref
+ 1. container : 가장 일반적인 방식, 같은 container 또는 부모 container에서 객체 찾음
+ 2. local : 같은 xml 설정 파일 내에 정의된 bean 객체를 찾는다
+ 3. parent : 부모 xml 설정 파일 내에 정의된 bean 객체를 찾는다.
+
+- inner bean
+ inner class
+
+- Collection
+ <list>, <set>, <map>, <props> element 사용.
+
+- p-namespace
+
+
+> Bean Lifecycle
+- JavaConfig : @Configuration -> xml 설정파일 역할함.
+- @bean
+    - initMethod : 초기화할 때 사용하는 메소드
+    - destroyMethod : destory 할 때 사용하는 메소드
+    - 각각 설정할 수 있다.
+- @scope : annotation으로 설정가능
+
+
+- spring.Client
+- 
+
+오후에 여기부터
+> AoP
+- 객체지향 프로그래밍을 보완하는 개념.
+- 객체지향 : 계층구조를 갖는 수직 관계라고 하면
+- AOP : 횡단 관심으로 분리해 핵신관심과 엮어 처리할 수 있는 방법. 수평관계.
+- 주요 개념
+  - Join Point
+  - Pointcut
+  - Aspect
+  - Advice
+  - Weaving
+- 장점
+  - 중복 코드 제거
+  - 가독성 향상
+  - 생산성 향상
+  - 재사용성 향상
+  - 변경 용이성 증대
+
+> 스프링
+method interceptor????
+
+
+스프링AOP JoinPoint
+JoinPoint는 Spring AOP 혹은 AspectJ에서 AOP가 적용되는 지점을 뜻한다.
+해당 지점을 JoinPoint 라는 인터페이스로 나타낸다. AOP 를 수행하는 메소드는 이 JoinPoint 인스턴스를 인자로 받는다.
+JoinPoint 인스턴스에서 조인 포인트 지점의 정보를 얻어내야 한다.
+메소드별 설명
+JoinPoint.getThis() : AOP 프록시 객체를 반환한다.
+JoinPoint.getTarget() : AOP가 적용된 대상 객체를 반환한다. 프록시가 벋겨진 상태의 객체이다.
+JoinPoint.getArgs() : JointPoint에 전단된 인자를 배열로 반환한다. (인자는 AOP 를 사용하는 메소드의 인자를 말함.)
+JoinPoint.getKind() : 어떤 종류의 JoinPoint인지 문자열로 반환한다. 보통은 메소드 호출이므로 "method-execution"
+JoinPoint.getSignature() : Signature 객체 반환
+getName() : JointPoint의 이름을 반환한다. 메소드 JoinPoint이면 메소드 이름
+getDeclaringType() : JointPoint를 선언하고 있는 타입을 반환한다. 즉, JoinPoint가 메소드이면, 해당 메소드의 클래스를 반환한다.
+getDeclaringTypeName() : JoinPoint를 선언하고 있는 타입의 이름을 반환한다. 즉, JoinPoint가 메소드이면, 해당 메소드의 클래스 이름을 반환한다.
+Signature를 상속받은 MethodSignature 인터페이스의 구현체인 경우, 조인 포인트로 지정된 메소드를 바로 받을 수 있다.
+MethodSignature.getMethod()
+JoinPoint가 메소드일 경우 해당 JoinPoint에 대한 java.lang.reflect.Method 객체 확보하기 
