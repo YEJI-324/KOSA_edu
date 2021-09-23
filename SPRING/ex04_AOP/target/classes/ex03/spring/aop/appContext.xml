@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="ex03.spring.aop.CalcImpl" id="calcImpl" />
+	<bean class="ex03.spring.aop.LogPrintHandlerImpl" id="logPrintHandlerImpl" />
+
+	<bean class="org.springframework.aop.framework.ProxyFactoryBean" id="proxy">
+		<property name="proxyInterfaces">
+			<!-- interface -->
+			<list><value>ex03.spring.aop.Calc</value></list>
+		</property>	
+		<property name="target" ref="calcImpl" /> 
+		<!-- 실제 구현된 target -->
+		<property name="interceptorNames">
+		<!-- handler : 보조업무 -->
+			<list>
+				<value>logPrintHandlerImpl</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>
