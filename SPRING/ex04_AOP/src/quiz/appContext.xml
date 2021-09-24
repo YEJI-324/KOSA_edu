@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!-- property 사용하는 방법 -->
+<!-- 	<bean class="quiz.Student" id="student">
+		<property name="name" value="김예지" />
+		<property name="group" value="3반" />
+		<property name="grade" value="3학년" />
+	</bean>
+	<bean class="quiz.Employee" id="employee">
+		<property name="name" value="김예지" />
+		<property name="depart" value="개발팀" />
+		<property name="rank" value="사원" />
+	</bean> -->
+
+	<!-- p 프로퍼티 사용하는 방법 -->
+	<bean class="quiz.Student" id="student" p:name="김예지" p:group="3반"
+		p:grade="3학년" />
+	<bean class="quiz.Employee" id="employee" p:name="김예지"
+		p:depart="개발팀" p:rank="사원" />
+	<bean class="quiz.LogAdvice" id="advice" />
+
+	<aop:config>
+		<aop:aspect id="aspect" ref="advice">
+			<aop:pointcut
+				expression="execution(public void quiz.*.*print())" id="pointCut" />
+			<aop:around method="around" pointcut-ref="pointCut" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>
