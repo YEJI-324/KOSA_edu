@@ -1,0 +1,129 @@
+[day23] 210927
+
+> 지난 시간 복습
+DI, AOP까지 함. DAO에서 디비 연결해야하기 때문에 디비를 배움.
+그 다음 mybatics 연결하는 ORM 할 것.
+연결하면서 web도 같이 들어감.
+MVC하고 프로젝트할 것.
+
+> 팀 과제 : git공부,,,,,,? 공통으로 협업하는 주소를 만들어라...? 사전학습을 해놔라 그런건가,,,,,
+
+> 지난 시간 데이터베이스 설치함.
+> 작업 관리자에서 서비스 > 서비스 열기
+OracleServiceORCL : 실행중 -> 콘솔모드에서 명령어를 입력할 수 있는 상태
+원격으로 접속하기 위해서 sql developer를 사용하는 것...
+- 이건 압축풀어서 바로 사용할 수 있음.
+- 접속 : 접속 목록 보여줌.
+- oracle 관리자 계정 : sys, system
+
+> 사용자 생성
+1. admin에서 다른 사용자 우클릭 사용자 생성
+2. 계정을 만들 수 있는 건 시스템계정,,,,
+3. 락을 해제한 계정 생성 create user test2 identified by oracle account UNLOCK;
+4. 권한 설정 grant create session, create table, create viedw,
+		create sequence, create procedure to test2;
+5. test 계정은 다 테스트 테이블을 가지고 있음.
+
+> 데이터 입력하기
+파일 받은 걸 창위에 올리면 파일이 열림
+전체 선택하고 실행하기 하기 -> 누구한테 넣을 건지 나옴. 원하는 계정 설정해서 하면됨.
+
+> SQL 종류
+- DQL
+- DML
+- DDL
+- DCL
+
+> 디비 역사,,, 뭐 특징같은 거 설명함
+
+> 데이터 타입
+- 문자형
+    - char(byte수) => 2000byte 최대 지정 - 고정길이
+    - varchar(byte수) => 4000bype 최대 지정 - 가변 길이
+- 숫자형
+    - number(전체자리수, 소수점자리수)
+- 날짜형
+    - date
+* oracle에서 테스트를 위해 가상 테이블을 제공 : dual 
+  ex) select sysdate from dual;
+
+> 테이블 생성방법
+create table 테이블이름 (
+	컬럼명 datatype [null|not null] [제약조건]
+) 
+
+> insert
+> 제약조건 있는 테이블 생성
+
+>select
+- 테이블 전체 출력
+  select * from 테이블명;
+- 원하는 필드만 출력
+  select [원하는 필드 리스트] from 테이블명;
+- 조건 where
+  select 필드 리스트
+       from 테이블명
+       where 조건;
+  - 해당하는 전체,,? cmd에서 파일 선택할 때는 * -> sql에서는 %를 사용함. + 'like'를 같이 써줘야함.
+    ex) 이름이 '이'씨인 사람 출력하기
+        select *
+            from emp2
+            where name like '이%';
+  - select *
+    from professor
+    where name like '__'; 이건 _두개 => 이름이 두글자인 사람 검색
+- 정렬 order by
+  select *
+      from professor
+      order by name; 
+    - 오름차순 : asc (생략가능)
+    - 내림차순 : dsec
+   select *
+       from professor
+       order by name desc, pay desc, position;
+    => 여러개 정렬 기준이 있으면 앞 조건부터 적용함. 컬럼 인덱스 번호로도 지정가능! db는 인덱스 1번부터 시작함!!
+- group by는 나중에~!
+
+    - where에 부등호, or, and 사용가능
+- select 컬럼명 별칭 지정 가능
+   select 컬럼명 as "별칭"
+    - as없어도 됨.
+    - 물리적인 공간에는 컬럼명 그대로 화면에 보이는 것만 별칭으로 보임
+    - '별칭'으로 별칭 지정해도 되지만 만약 별칭 사이에 공백이 있다면 "별  칭"으로 사용해야함.
+
+- distinct : 중복을 제거함.
+   select distinct position from professor;
+
+> update 명령어
+  - # 한 컬럼 말고 여러 컬럼 동시에 변경도 가능
+> delete 명령어
+
+> 연산자
+- 산술연산자 mod : 나머지 가져옴
+- 관계 연산자 = : 같다 ** '=='이 아님!
+- nvl함수 : null을 원하는 값으로 바꿀 수 있음.
+    - nvl(바꿀 필드, 원하는 값) -> 필드 중 null을 원하는 값으로 바꿈.
+- 조건연산자
+  - in : or 대체, 쿼리 연산 속도가 더 빠르기 때문에 in이 권장됨.
+  - not in : and 대체
+  - between : 사이값 구하기
+    - 주의사항
+      - 앞에 있는 값이 뒤에 있는 값보다 작아야함.
+      - between 300 and 500 (o)
+      - between 500 and 300 (x)
+  - %, _, like
+  - not : 현재 상태의 반대값.
+  - ** null 찾기 : is null / is not null
+  - any : 검색결과와 하나이상이 일치하면 참.
+  - all : 검색결과의 모든 값이 일치하면 참.
+
+> 함수
+- 집계함수(그룹함수)
+ 
+
+> 제약조건
+- primary key : 테이블 만들 때 제약조건 설정함.
+    - 중복 불가, not null
+- foreign key : 다른 테이블의 기본키를 참조하는 키
+    - 중복가능, null 허용
+    - 참조되고 있는 테이블의 데이터 값 이외의 값은 삽입할 수 없음. (insert 할 때 잘못된 데이터 삽입이 안되도록 하는 것.)
