@@ -71,5 +71,7 @@ select rank(58) within group(order by weight desc)
     from student;
 
 -- 문제] g_end가 200000, 600000 보다 작은 값 출력 (any 사용할 것)
-
+select * 
+    from gift
+    where g_end < any(200000, 600000);
 

@@ -94,9 +94,14 @@ create table 테이블이름 (
 - distinct : 중복을 제거함.
    select distinct position from professor;
 
-> update 명령어
+> update 명령어 : 레코드 수정
+    update 테이블이름
+    set 컬럼명=변경값, 컬럼명=변경값, 컬럼명=변경값
+    [where 조건식];
   - # 한 컬럼 말고 여러 컬럼 동시에 변경도 가능
-> delete 명령어
+> delete 명령어 : 레코드 삭제
+    delete 테이블이름 [where 조건식];
+    truncate table 테이블이름; => 모든 레코드 삭제
 
 > 연산자
 - 산술연산자 mod : 나머지 가져옴
@@ -104,22 +109,32 @@ create table 테이블이름 (
 - nvl함수 : null을 원하는 값으로 바꿀 수 있음.
     - nvl(바꿀 필드, 원하는 값) -> 필드 중 null을 원하는 값으로 바꿈.
 - 조건연산자
+  - and, or : 컬럼명=값 and(or) 컬럼명=값...
   - in : or 대체, 쿼리 연산 속도가 더 빠르기 때문에 in이 권장됨.
+      컬럼명 in(값, 값,,,)
   - not in : and 대체
   - between : 사이값 구하기
+      컬럼명 between 최소 and 최대
     - 주의사항
       - 앞에 있는 값이 뒤에 있는 값보다 작아야함.
       - between 300 and 500 (o)
       - between 500 and 300 (x)
-  - %, _, like
-  - not : 현재 상태의 반대값.
-  - ** null 찾기 : is null / is not null
+  - like %, _
+      컬럼명 like '%,_ 있는 문자열'
   - any : 검색결과와 하나이상이 일치하면 참.
   - all : 검색결과의 모든 값이 일치하면 참.
+  - not : 현재 상태의 반대값.
+-null 찾기 : is null / is not null
 
 > 함수
 - 집계함수(그룹함수)
- 
+  - sum(컬럼명)
+  - avg(컬럼명)
+  - max(컬럼명)
+  - min(컬럼명)
+  - count(컬럼명) : 총 레코드 수(null값은 제외)
+  - count(*) : null을 포함한 총 레코드 수
+  - rank(값) within group(order by 컬럼명 asc|desc) : 전체 값을 대상으로 순위 구함. 여기서 desc일 때 null 우선순위가 더 높아 where절로 null을 제외시켜주어야함.(is not null)
 
 > 제약조건
 - primary key : 테이블 만들 때 제약조건 설정함.
@@ -127,3 +142,6 @@ create table 테이블이름 (
 - foreign key : 다른 테이블의 기본키를 참조하는 키
     - 중복가능, null 허용
     - 참조되고 있는 테이블의 데이터 값 이외의 값은 삽입할 수 없음. (insert 할 때 잘못된 데이터 삽입이 안되도록 하는 것.)
+-unique : 중복 불가, null 허용(not null 지정하면 null 안됨)
+    - 테이블을 만들 때 pk와 같은 효과를 주기위한 제약조건
+    - 한 테이블에 여러 컬럼에 사용가능함.
