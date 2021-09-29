@@ -14,4 +14,3 @@ select dcode from dept2 where area='서울지사';
 select empno, name, deptno
     from emp2
     where deptno in (select dcode from dept2 where area='서울지사');
-

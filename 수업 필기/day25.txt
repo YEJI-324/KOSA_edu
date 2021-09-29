@@ -20,8 +20,38 @@
 
 > union
 
-
-
 > subQuery
 - select * from emp where ename = ( 서브쿼리문장) ;
 - select * from emp where ename in ( 서브쿼리 문장);
+
+> View
+- 가상테이블
+- 실제 존재하지 않지만 실제 태이블과 똑같이 사용가능
+- 복잡한 쿼리문을 미리 뷰로 만들어서 사용 -> 간단하게 검색 가능
+- 보안을 위해 사용 : 관리자 유형에 따라 특정 컬럼 만 선택해 보여줌.
+
+- 새로 만들기
+  create view 뷰이름
+  as 뷰 내용(select절)
+- 없으면 새로 만듦, 있으면 수정
+  create or replace view 뷰이름
+  as 뷰 내용
+- 삭제하기
+  drop view 뷰이름
+
+- 실제 테이블 제거하면 뷰도 제거됨.
+  뷰를 제거하면 실제 테이블은 그대로.
+
+** 오라클에서 != 는 <>와 같음
+** SQL 질의어 명령은 대소문자 구분안함.
+   하지만 레코드에 대한 것은 대소문자 구분함(오라클)
+    -> job != 'MANAGER'로 검색하면 'manager'인 튜플도 검색됨,,
+    => job != 'MANAGER' and job != 'manager'
+
+> rownum, rowid
+- 제어할 수 있는 건 아님.
+- 시스템이 자체적으로 지정하는 id
+
+> sequence
+- 자동증가 컬럼
+create sequence 시퀀스이름 ~~

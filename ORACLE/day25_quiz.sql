@@ -38,6 +38,7 @@ select ename, decode(comm, null, 'no commission', comm) commission
 -- 문제5]학생 테이블에서 전공이 101인 학과의 평균 몸무게보다 무거운 학생들의 이름과 몸무게를 출력하세요.
 
 -- subQuery 2
+
 -- 1. EMP2 테이블을 사용하여 전체 직원 중 과장 직급의 최소 연봉자보다 연봉이 
 --    높은 사람의 이름과 직급,연봉을 출력하세요. 
 --    단 연봉 출력 형식은 아래와 같이 천 단위 구분기호와 원 표시를 하세요
@@ -62,3 +63,46 @@ select p.profno, p.name, p.hiredate, d.dname
     on p.deptno=d.deptno
     where hiredate in (select min(hiredate) from professor group by deptno)
     order by d.dname asc;
+
+-- View
+
+-- 문제1] 30번 부서 사원들의 직위, 이름, 월급을 담은 view  테이블 만들기, 별칭 직위, 사원이름, 급여로 Alias 주고
+--     월급이 2000보다 많은 사원들만 추출해서 뷰 만들기
+
+create or replace view v_emp_30
+    as select job 직위, ename 사원이름, sal 급여
+        from emp
+        where sal>2000 and deptno=30;
+
+select * from v_emp_30;    
+select * from emp;
+-- 문제2] 부서별(부분합==소계) 최대급여, 최소급여, 평균급여를 갖는 뷰 만들기
+create or replace view v_emp_sal
+    as select deptno, max(sal) 최대급여, min(sal) 최소급여, round(avg(sal), 2) 평균급여
+        from emp
+        group by deptno;
+select * from v_emp_sal;
+
+-- 문제3] 부서별 평균급여를 갖는 뷰를 만드는데, 평균 급여가 2000이상인 부서만 출력하세요.
+create or replace view v_emp_avg_sal
+    as select deptno, round(avg(sal), 2) 평균급여
+        from emp
+        group by deptno having avg(sal)>2000;
+select * from v_emp_avg_sal;
+
+-- 문제4] 직위별 총급여를 갖는 뷰 테이블 만들고, 직위(job)가 manager인 사원들은 제외하고 총급여가 3000이상인 사원들 출력하기
+create or replace view v_emp_sal_position
+    as select job, sum(sal) "총 급여"
+        from emp
+        where job != 'MANAGER' and job != lower('MANAGER') -- oracle에서 != 는 <>랑 같음
+        group by job having sum(sal)>3000;
+
+-- 최종 Quiz
+-- 자동증가 시퀀스명을 seq_test라고 지정하고 100 시작해서 100 증가
+-- 테이블 seq_test 테이블(num, name, phone) 만들기
+-- 레코드 3개 추가해서 확인하기
+
+create sequence seq_test
+    start with 100
+    increment by 100;
+
