@@ -2,6 +2,11 @@
 select * from emp2;
 select * from emp2 where name='백원만';
 
+select * from emp2 where pay > 60000000;
+
+select * from emp2 where pay > ( select pay from emp2 where name='백원만');
+
+-- 서브쿼리 퀴즈1
 
 -- 강의장 왔다!
 -- 서브쿼리의 결과가 한 개 이상 반환될 때는 in, any, all 연산자를 사용함.
