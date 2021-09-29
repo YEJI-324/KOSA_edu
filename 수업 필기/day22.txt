@@ -1,0 +1,33 @@
+[day22] 210924
+
+> AOP
+- JoinPoint
+- xml
+- annotation
+
+- Advice 결합점 결합 타입
+  - Around advice
+- Pointcut 지정자
+  - execution
+  - this
+  - target
+  - 쓰는 방법 110p
+
+- handler 역할하는 클래스
+
+[문제] 학생 클래스(이름, 반, 학년), 직장인 클래스(이름, 부서, 직급)
+ around 전후 원하는 메세지 출력하기, 메인 구현
+
+> annotaion을 이용한 aop
+- Advice class에 @Aspect annotation추가
+
+> Database
+노트북에는 oracle developer 설치하기
+- Oracle자료.pdf 보면서 계정만드네,,,,, 
+
+> 배고프다
+> Spring DAO
+> Database 설치
+> 디비 비밀번호 : abc12345로 통일,,
+
+Vue.js
