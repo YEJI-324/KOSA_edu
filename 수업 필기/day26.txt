@@ -1,0 +1,105 @@
+[day26]
+
+> 복습
+- 서브쿼리 위치에 따라
+  - 스칼라 서브쿼리
+  - 인라인 뷰
+  - 서브쿼리
+- 테이블 복사 & 레코드 복사
+- 뷰
+- rownum/rowid
+
+> PL/SQL 
+: 프로그래밍화 되어있는 질의어
+Declare -선언(선택)
+Begin
+    실행
+End;
+
+1. 변수선언
+- Declare 변수이름 데이터타입;
+- Declare 변수이름 데이터타입=값;
+- Declare 변수이름 데이터타입 DEFAULT 기본값;
+- Declare 변수이름 데이터타입; 변수이름 데이터타입; 변수이름 데이터타입;... : 변수 여러개 선언하기
+
+2. 제어문
+3. 프로시저(input, ouput, cusrsor)
+create or replace PROCEDURE 프로시저이름
+is
+    Begin
+	(~~~)
+    End;
+
+실행 : exec 프로시저이름
+
+
+> spring
+- new dynamic web project
+
+- web.xml 에 servlet 등록하기
+1. 태그로 하는 방법
+  - <servlet>
+      - servlet-name
+      - servlet-class : 등록할 클래스
+  - <servlet-mapping>
+      - servlet-name
+      - url-pattern : url 주소
+
+- 컴파일 순서
+  - 서버가 켜지면 WEB-INF 에서 lib를 읽음.
+  - web.xml 읽음. 
+      - welcom-file-list 에 있는 파일을 우선 읽음.
+  - servlet 태그를 읽고 등록된 서블릿(자바)를 읽음
+  - 다 읽고 url패턴 읽고 배포!
+
+2. annotation으로 하는 방법
+@WebServlet("/url-pattern")
+
+: 그동안 spring에서 만든 서블릿을 이용한 것임.
+오늘 하는 건 직접 서블릿 페이지를 사용한것.
+
+> view -> servlet
+// html -> servlet
+// servlet 저장한 데이터 -> html로 보내주는 방식
+
+- form 태그 : 입력 받아서 -> action에 있는 서버측 url 주소로 보냄. 빠져나와서 이 url 서블릿으로 가라~~, method="get" : get방식으로 InfoServlet으로 탐.
+- html에서 정보 받아올 때 <input> 태그 name 속성에 지정한 이름으로 가져옴!
+- 네트워크를 통해 주고 받는 데이터 타입은 스트링이다. -> 서블릿에서 respons.get어쩌구 할 때 스트링으로 받아온다.
+
+- 
+
+> jsp -> jsp
+- jsp 파일만들기
+- form 태그에 action=결과 받을 jsp
+
+- request 내장 객체 함수
+  - 클라이언트 IP 정보 가져오기 : <%= request.getRemoteAddr() %>
+  - 요청방식(인코딩) : <%= request.getCharacterEncoding() %>
+  - 전송 방식 : <%= request.getMethod() %>
+  - 서버 이름 : <%= request.getServerName() %>
+  - 컨텍스트 정보 : <%= request.getContextPath() %>
+  - 전송된 데이터 : <%= request.getParameter("id") %>
+
+> Spring DAO
+- Spring Legacy Project > simple spring maven
+
+- oracle dependency 추가하기
+  - mvnrepository 에서 ojdbc 버전 맞는 걸로 가져오기
+
+- 디비 연결하기
+  - sts에서 sql파일 만들 수 있음
+  - 이미 테이블이 있으면 클래스 파일 만들어서 가져올 수 있음.
+  - 패키지 만듦
+    - model
+      - GiftVO : DTO, VO, TO 라고 함
+    - dao : control라고도 함
+      - 여기서 DB연결 관련 메소드 있는 추상 클래스 만듦
+    - view : 자바에서는 main이 뷰
+  - dao : 추상 클래스 만들기(GiftDAO)
+    - 추상클래스 구현하기(GiftDAOImpl)
+      1. 드라이버로드
+      2. connect & open
+   - dao에서 쿼리 작성
+      3. 사용(DML)
+      4. 닫기(close)
+   - main에서 dao,vo 연결하기
