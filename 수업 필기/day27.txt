@@ -1,0 +1,102 @@
+[day 27] 211001
+
+>jdbc
+- 어제 한 디비 연결 복슴
+
+- 오라클은 commit을 직접 해야하지만 자바는 자동 커밋이다.
+
+- 계속 
+Cannot invoke "java.sql.Connection.createStatement()"
+이 에러가 떴는데 뭔가,,, 오라클에 연결안하고,,, 자바에서 가져오려고 해서 그런 것 같다.. 아닌가..... 아닌듯,,,,
+복습하고,,, insert, update, delete, select 추가하고 MVC기반으로 디비 하러감. 소스파일 주심.
+
+-- 복습하기! jdbc 연결하기
+
+> MVC
+
+
+- @Autowired
+- @Qualifier
+  - autowired로 같은 타입 bean을 여러개 만들 수 있어서 오류 발생할 수 있음. autowired로 어떤 bean에 주입해야할지 모름.
+  - Qualifier을 사용해 찾을 bean 대상을 좁힐 수 있음. 같은 타입 빈이 있을 때 생성된 객체 중 어떤 인스턴스를 부를지
+  *사용방법
+  - @Qualifier("객체 타입")
+  - or 메서드에 인자로 @Qualifier("객체 타입")
+  - bean을 xml기반으로 만들었을 때
+    <qulifier value="객체 타입" />
+
+- @Resource : name으로 대상 bean을 찾음!
+- @PostConstruct & @PreDestory : 객체가 생성되고, 파괴될 때 callback 메소드 지정
+
+- Auto-detecting components
+context 설정하고
+<context> 로 scan할 패키지 설정.
+
+> MVC : 전체적인 구조 설명함.
+
+- Model
+- View
+- Controller
+
+- Component
+1. DispatcherServlet
+서블릿 : web.xml에서 서블릿을 등록하거나 annotation을 써야함.
+스프링에서는 자체적으로 dispatcher servlet클래스 파일을 줌. -> 여기에 우리가 annotation을 할 수 없으므로 web.xml에서 서블릿을 등록해야한다.
+
+- 만약 설정파일이 여러개가 되면, listener를 설정해야함.
+
+2. HandlerMapping
+3. Controller 
+4. ModelAndView
+- model
+5. ViewResolver : 뷰를 조립한다...... 뭔말이여 이게
+ - prefix + "home" + 
+6. View
+
+
+> ex06
+dynamic web project > project name : ex06_springMVC > 
+content directory : WebContent
+
+1. Controller 만들기 : springMVC.pdf 에서 Controller 계층 구조
+ 1) class로 만들기
+    - Controller : spring에서 제공하는 mvc.controller 인터페이스 상속
+    - 컨트롤러 가져오면 ModelAndView를 자동으로 오버라이드함.
+2. ModelAndView 객체 생성, 데이터 저장, 뷰 페이지(hello.jsp)로 이동.
+3. DispatcherServlet : web.xml에서 서블릿 등록
+  - <servlet> -> <servlet-name> 이름 지정 / <servlet-class> DispatcherServlet!
+  - <servlet-mapping> -> <servlet-name> 이름 지정 / <url-pattern> url 확장자?
+4. 실행시키면 컨트롤러 > ModelAndView > (ViewResolver) > View를 타서 실행됨!
+5. web.xml과 같은 폴더에 application context 파일 생성
+  - 웹 계층이므로 서블릿명-servlet.xml으로 생성
+
+정리하면 controller실행 하면 context파일에서 컨트롤러를 타라! -> 컨트롤러를 갔더니 데이터 저장하고, jsp파일로 보내줌 : 이게 view임. 그러면 뷰를 화면에 뿌려줌.
+
+컨트롤러에서 실행하면 계속 주소를 바꿔줘야됨.. -> index 파일 만들어서 항상 같은 곳으로 가게함,,?
+-- index.html 만들기
+ - WebContent 밑에 생성
+설정파일에서 ~~/bo로 보여주라, web.xml에서도 *bo라고 하고,, index 만들고 index에서 onload -> jsp로 설정하기
+
+2. 조립하기
+- controller에서 setViewName("list") : 뷰 경로가 아닌 뷰 이름 설정
+- list.jsp 만들기 : WEB-INF 밑에 list.jsp 폴더 만들기
+- 실제 경로는 list가 아닌 > /WEB-INF/jsp(prefix) + "list" + .jsp(suffix) 임 -> ViewResolver 사용
+- ViewResolver : context  파일에서 설정함.
+- 와우,,,,,,,,,,, 신기하다,,,
+
+<퀴즈>
+- WriteController
+페이지 = 3
+글제목 = 어쩌구~~
+작성자 = 어쩌구~~
+
+-> jsp 폴더에 write.jsp로 이동해서 출력하기
+
+
+2. annotaton으로 controller 작성하기
+- @Controller annotation 클래스위에 추가
+- ModelAndView 리턴하는 메서드 만듦.
+- 설정파일에서 bean하고 객체 생성하기 : name설정안하고,,, class만 설정해서 만듦,,,,
+- 과연 경로는 어떻게 설정할까요?!
+  - ModelAndView를 리턴하는 메서드 위에 @RequestMapping()을 걸어준다.
+    - 괄호 안에는 원하는 경로를 지정해주면 됨.
