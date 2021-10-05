@@ -1,0 +1,64 @@
+[day 28] 211005
+
+복습 > 
+
+  PreparedStatement pstmt = con.prepareStatement("UPDATE EMPLOYEES
+                                     SET SALARY = ? WHERE ID = ?");
+   pstmt.setBigDecimal(1, 153833.00)
+   pstmt.setInt(2, 110592)
+
+   setXXX(순번, 데이터);
+       자료형
+
+
+  executeQuery(SQL);  // 반환값이 있는경우  - select 
+  executeUpdate(SQL); // 반환값이 없는 경우 - insert, update, delete
+
+   rs.getXXX(index); or rs.getXXX("필드명");
+
+
+> MVC 
+- Controller 인터페이스를 상속받으면 컨트롤러로 인식함.
+  - Controller 인터페이스가 가지고 있는 추상메서드 handleRequest를 구현해주어야함.
+  - 1. web.xml : Dispatcher, 설정파일(객체 빈 생성해줌 or 자바기반 annotation)을 설정함. -> 2. DispatcherServlet -> 3. 내무적으로 있는 HandlerMapping -> 4. Controller를 타게됨. 컨트롤러 내부에서 인터페이스 구현 : 추상메서드로 ModelAndView를 리턴하는 메서드(handlerRequest)를 구현함. 데이터 저장하는 기능과 뷰 페이지 전달하는 기능을 가지고 있음.
+Model, ModelAttribute는 데이터를 저장하는 기능만 가지고 있음.
+-> 5. ViewResolver에서 조립함.  -> 6. View : jsp파일을 찾아서 화면에 뿌려준다.
+  - Controller 계층구조
+
+
+오늘은 MyBatis
+
+> iBatis VS myBatis
+
+> ex07_springMVC_myBatis
+- spring legacy project, springMVC 로 프로젝트 생성
+
+- 종속성 추가하기
+1. ojdbc 종속성 추가
+2. 한글 인코딩 filter 설정함. (web.xml)
+3. junit 추가,
+4. lombok 추가
+5. spring jdbc
+6. spring transaction
+
+- 패키지 나누기
+1. controller
+2. dao
+3. domain
+4. service
+
+- DTO, DAO 구현
+1. domain > BoardVO : DTO
+2. dao > BoardDAO, BoardDAOImpl
+  - BoardDAO : insert, update, delete, select 추상 메소드있는 인터페이스
+  - BoardDAOImpl : @Repository("boardDAO") // 레파지토리 이름을 boardDAO로 지정한다, 여기에서 실제 쿼리문이 있음.
+3. service > BoardService, BoardServiceImpl
+  - BoardService : CRUD 추상메소드 있는 인터페이스, DAO와 매핑될 수 있는 매핑메소드
+  - BoardServiceImpl : BoardDAOImpl 객체를 생성해서 매핑, 자동주입을 위해서 @Autowired 추가, 여기에 dao.insert등을 
+
+- myBatis
+1. BoardDAOImpl : myBatis, oracle 연결
+  - SqlSessionTemplate 객체 생성
+    - 여기에 이미 insert, update,,, 구현되어있음.
+
+- java annotation
