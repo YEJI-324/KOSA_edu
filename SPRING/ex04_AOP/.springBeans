@@ -11,6 +11,7 @@
 		<config>src/ex04/spring/aop/context.xml</config>
 		<config>src/ex05/spring/aop/context.xml</config>
 		<config>src/quiz/appContext.xml</config>
+		<config>src/kr/edu/kosta/appContext.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
