@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+	<select id="selectAll" resultType="board" parameterType="hashmap"> 
+	<!-- 여기 아이디와 매핑메소드에 있는 이름과 일치해야함. -->
+	<!-- resultType은 mybatis 설정파일에서 설정한 별칭 -->
+	<!-- parameterType : 리턴 타입 -->
+		select *
+			from board
+			order by seq desc
+	</select>
+</mapper>

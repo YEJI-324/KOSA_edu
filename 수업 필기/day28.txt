@@ -30,13 +30,18 @@ Model, ModelAttribute는 데이터를 저장하는 기능만 가지고 있음.
 
 > iBatis VS myBatis
 
+  - MyBatis -  설정 파일 : xml file
+ 1) 연결 - sqlMapConfig.xml  : db connection, user/password , mapper 경로 
+ 2) DML 명령 - mapper.xml  : select / insert / delete /update
+ 3) 매핑메소드 - application :  src/ ~Dao.java , web :  .jsp 파일로 만들 수 있음.
+
 > ex07_springMVC_myBatis
 - spring legacy project, springMVC 로 프로젝트 생성
 
 - 종속성 추가하기
 1. ojdbc 종속성 추가
 2. 한글 인코딩 filter 설정함. (web.xml)
-3. junit 추가,
+3. junit 추가 : 단위테스트 프레임워크
 4. lombok 추가
 5. spring jdbc
 6. spring transaction
@@ -57,8 +62,92 @@ Model, ModelAttribute는 데이터를 저장하는 기능만 가지고 있음.
   - BoardServiceImpl : BoardDAOImpl 객체를 생성해서 매핑, 자동주입을 위해서 @Autowired 추가, 여기에 dao.insert등을 
 
 - myBatis
-1. BoardDAOImpl : myBatis, oracle 연결
+1. BoardDAOImpl : myBatis, oracle 연결 - 이게 3)번
   - SqlSessionTemplate 객체 생성
     - 여기에 이미 insert, update,,, 구현되어있음.
+  - myBatis.selectList("BoardDAO.selectAll", map); : 매핑메소드! 이렇게 식별자와 값, 생성한 객체 사용함.
+2. root-context.xml 에서 DB connect & open
+  - bean 객체 생성 : DriverManagerDataSource
+    - set 메소드로 value 설정
+    - driverClassName 으로 오라클 드라이버 연결
+    - url
+    - username
+    - password
+3. root-context.xml 에서 myBatis 연결하기
+  - SqlSessionFactoryBean 객체 생성
+  - dataSource : ref를 참조해 디비와 연결
+  - src > mappers 패키지 > boardMapper.xml 생성
+  - mapperLocation : mapper.xml 연결
+  - src > mybatis-config.xml 생성 : mybatis 설정 파일
+  - configLocation : config.xml 연결
 
-- java annotation
+  - SqlSessionTemplate 객체도 생성
+4. mybatis-config.xml 
+  - DOCTYPE 추가
+  - <configuration>
+  - <typeAliases>
+  - <typeAlias type="" /> : BoardVO 연결
+  - 드라이버 연결을 여기서 하기도 함!
+5. mapper.xml
+  - DOCTYPE 추가
+  - <mapper namespace=""> : namespace="BoardDAO" : 구분자 역할, BoardDAO에 있는 ~~로 연결
+  - namespace가 필수! : mapper 태그에 필수라는 뜻임.
+  - 여기에 4대구문이 들어감
+  - <select id="" resultType="" parameterTyper="">
+    - id : 매핑메소드에 있는 식별자와 일치해야함.
+    - resultType : 결과 리턴 타입, myBatis 설정파일에서 설정한 별칭
+    - parameterType : 인자 타입, 매핑메소드에서 입력한 값 타입?
+
+- Controller 만들기
+1. BoardController 만들기 : annotation 기반으로 만듦.
+2. 중간역할 하는 BoardService 객체 생성
+3. @RequestMapping 으로 selectAll 메서드
+
+
+갑자기 오류가 오지게 뜬다,,,,, 구글링해도 한시간째 해결을 못하고 있삼ㅇㄴ~~~~~~~
+일단 구조 설명듣고,,,,,,,,,,, 수업끝나고 새로 해봐야겠다,,,,,,,,,,,
+
+1. root-context.xml 오라클 본인꺼 맞추시고
+외부접속
+<property name="url" value="jdbc:oracle:thin:@kosa3.iptime.org:본인꺼:orcl"></property>
+
+2. boardMapper.xml 들어가서 insert부분에 value(board_seq)를 seq_board로 바꾸기 
+이 부분이 oracle sequence 아래에서 만든 부분
+3. oracle 
+create table board (
+  seq number,
+    title varchar2(50),
+    writer varchar2(30),
+    content varchar2(2000),
+    regdate date,
+    cnt number, // or readcount number
+    constraint board_seq_pk primary key (seq)
+);
+create sequence seq_board;
+insert into board values(seq_board.nextval, 'title', 'writer','contents...', sysdate, 0);
+commit;
+
+gWebBoard 확인할 부분
+root-context : ip주소, 유저명
+board mapper : 필드명, 시퀀스, 테이블 명 같은지
+
+board
+-seq
+-title
+-writer
+-content
+-regdate
+-readcount
+
+VO에서 readcount 확인하기
+getBoardList.jsp에서 readcount 확인하기
+
+
+DTO -> sub element 사용해서 jsp에 뿌리는거 까지,,,,,,,
+
+
+
+> sp41_mybatis_Web_SpringBoard_03,,,,,,,,,,
+바로 위에 준것은 POM.XML에서 오라클 라이브러리도 변경하시고,
+xml 설정 파일에서 자신의 id/pwd로 변경하시구요.  
+디비 없으면 디비도 만들어서 실행해보세요.
