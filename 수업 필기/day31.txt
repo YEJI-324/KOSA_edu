@@ -1,0 +1,36 @@
+[day 31] 211008
+
+오늘은 JPA까지 한다고 한다
+
+> emp : Spring Boot + Oracle DB + RestFull api
+- dependencies 
+  - lombok, spring data jpa, oracle driver, rest repositories
+
+> application.properties
+- DataSource 설정
+  - spring.datasource.driver-class-name : 드라이버 이름
+  - .url : 주소
+  - .username, .password : 사용자 이름, 비밀번호
+- JPA
+  - spring.jpa.hibernate.ddl-auto=update : 변경된 것 update
+- Log Message
+
+> model
+- DTO 클래스 생성 : EmpDto
+  - Serializable 상속받기 : 들어간 순서대로 나중에 꺼낸다.
+  - 필드 선언하고 annotation으로 테이블 만들 수 있다.
+  - @Table(name="테이블명") : 테이블 이름으로 테이블 만듦.
+  - @Entity : 이건 뭐람,,?
+  - @Id, @GeneratedValue(strategy = GenerationType.AUTO) : 해당 필드가 자동 증가하는 id
+
+> repo
+- EmpRepo 인터페이스 생성
+- PagingAndSortingRepository<DTO클래스, 타입> 상속받기 : 페이징 처리를 자동, 정렬하기 위해
+- @RepositoryRestResource annotation 추가
+  - collectionResourceRel = "empdto", path = "empdto"
+
+> Lombok 설정하기
+- .jar 파일 다운로드
+- sts 같은 위치에 파일 두고
+- cmd에서 java -jar lombok.jar
+-> sts.lni나오면 끝
