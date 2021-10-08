@@ -21,16 +21,35 @@
   - 필드 선언하고 annotation으로 테이블 만들 수 있다.
   - @Table(name="테이블명") : 테이블 이름으로 테이블 만듦.
   - @Entity : 이건 뭐람,,?
-  - @Id, @GeneratedValue(strategy = GenerationType.AUTO) : 해당 필드가 자동 증가하는 id
+  - @Id : 해당 필드가 primary key.
+  - @GeneratedValue(strategy = GenerationType.AUTO) : 해당 필드가 자동 증가하는 id
 
 > repo
 - EmpRepo 인터페이스 생성
-- PagingAndSortingRepository<DTO클래스, 타입> 상속받기 : 페이징 처리를 자동, 정렬하기 위해
+- PagingAndSortingRepository<DTO클래스, 클래스의 id 자료형> 상속받기 : 페이징 처리를 자동, 정렬하기 위해
 - @RepositoryRestResource annotation 추가
   - collectionResourceRel = "empdto", path = "empdto"
+- 여기까지하고 실행했을 때 디비에 null 값이 들어간다면 롬복이 제대로 설정되지 않은것.
+- findByEname(@Param("ename") String ename); // JPA가 추상메소드만 만들어주면 시스템이 알아서 다 만들어줌. == select * from boot_emp where ename="어쩌구~~"; 와 같음.
 
 > Lombok 설정하기
 - .jar 파일 다운로드
 - sts 같은 위치에 파일 두고
 - cmd에서 java -jar lombok.jar
 -> sts.lni나오면 끝
+- lombok.jar파일 클릭하고 폴더 설정해서 설치해도 됨
+
+> create는 response number : 201
+
+> POM.xml : spring-boot-starter-data-rest
+ Spring HATEOAS : 서버에서 클라이언트로 응답 리소스를 보낼 때 link로 사용 가능한 URL을 같이 전달하고 클라이언트는 제공된 link정보를 바탕으로 리소스에 접근할 수 있도록 하는 것.
+
+> delete로 디비 삭제할 수도 있음.
+
+> jwt, 보안,, 이런 건 뷰 하면서 하겠다!
+
+
+[문제] springframework or spring boot 사용해서 회원가입/로그인 처리 만들기
+- 회원 디비 만들기
+- 회원가입 : 디비 insert
+- 로그인 : 회원 디비 조회해서 성공/실패

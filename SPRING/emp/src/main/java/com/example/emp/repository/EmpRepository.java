@@ -8,8 +8,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.example.emp.model.EmpDto;
 
-@RepositoryRestResource(collectionResourceRel = "empdto", path = "empdto") // url : /empdto
-public interface EmpRepo extends PagingAndSortingRepository<EmpDto, Long>{
-
+@RepositoryRestResource(collectionResourceRel = "empdto", path = "empdto")
+public interface EmpRepository 
+			extends PagingAndSortingRepository<EmpDto, Long> {
+	
 	List<EmpDto> findByEname(@Param("ename") String ename);
+
 }
