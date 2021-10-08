@@ -7,7 +7,7 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="com.javassem.domain.BoardVO" />		
-		<typeAlias alias="reply" type="com.javassem.domain.ReplyVO" />
+		<typeAlias alias="reply" type="com.javassem.domain.ReplyVO" />		
 	</typeAliases>
 
 

@@ -2,8 +2,11 @@ package com.javassem.domain;
 
 import java.util.Date;
 
+import lombok.Data;
+
 //VO(Value Object)
 
+@Data
 public class BoardVO {
 
 	private int seq;
