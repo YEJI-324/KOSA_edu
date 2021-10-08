@@ -7,11 +7,15 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="board" type="com.javassem.domain.BoardVO" />		
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 		<typeAlias alias="reply" type="com.javassem.domain.ReplyVO" />
 =======
 		<typeAlias alias="reply" type="com.javassem.domain.ReplyVO" />		
 >>>>>>> main
+=======
+		<typeAlias alias="reply" type="com.javassem.domain.ReplyVO" />
+>>>>>>> Stashed changes
 	</typeAliases>
 
 
