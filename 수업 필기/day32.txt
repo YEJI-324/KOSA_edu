@@ -1,0 +1,27 @@
+[day 32] 211012
+
+> spring privacy
+dependency 추가
+build path 들어가서 maven dependency 리무브
+project facets 버전 확인
+서버 클린
+프로젝트 클리어
+> jwt
+
+
+> team project
+pom.xml 에서 repository 지우기
+오라클 종속성 추가하기 ojdbc8 19.3.0.0
+
+web-inf
+오라클 계정 변경하기
+
+> Vue.js
+Angular, React
+
+node.js 설치
+
+vue cli 설치
+CLI 가 뭘까~~~
+
+- vue create "프로젝트 이름"
