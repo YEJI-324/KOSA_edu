@@ -46,10 +46,10 @@ export default {
   computed: {
     isUserNameValid() {
       if (validateEmail(this.username)) {
-          //this.isError = false;
+          this.isError = false;
           return true;
         } else {
-          // this.isError = true;
+          this.isError = true;
           return false;
         }
       // return validateEmail(this.username);
