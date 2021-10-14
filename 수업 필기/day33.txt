@@ -27,3 +27,5 @@
   - style : css
 
 > vue로 로그인 폼 만들기
+
+> vue - toast 메세지 띄우기
