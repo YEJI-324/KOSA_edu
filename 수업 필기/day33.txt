@@ -1,0 +1,29 @@
+[day 33]
+
+> 복습 : spring security
+- 해당 페이지로 분기할 수 있도록 권한 주는 것.
+
+> 복습 : Vue.js
+- 어제 codepen으로 간단하게 vue 써봄. cdn 방식으로.
+
+> extention > Vetur, material Theme, live server, night owl 설치
+
+> vue를 쓰려면 라이브러리를 내부적으로 가지고 있거나, cdn 방식으로 걸어주어야함.
+
+> data
+- {{data}} : 브라켓 사이에 해당하는 키값
+
+> components
+- 태그처럼 component를 사용할 수 있음.
+
+> cli로 프로젝트 생성하기 : vue-form
+- 생성한 프로젝트로 cd : cd vue-form
+- 서버 키기 : npm run serve
+- vue 파일 보면 html / js / css 로 이루어져 있음
+  - template : html
+    - 무조건 하나의 태그만 있어야함. 
+    - 하나의 태그안에 여러 태그는 가능
+  - script : js
+  - style : css
+
+> vue로 로그인 폼 만들기
