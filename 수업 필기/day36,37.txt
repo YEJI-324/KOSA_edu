@@ -1,0 +1,5 @@
+[day 36]
+오전에 component 복습하고
+
+오후에 axios 
+
