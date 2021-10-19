@@ -1,4 +1,4 @@
-# my-instargram
+# my-instagram
 
 ## Project setup
 ```

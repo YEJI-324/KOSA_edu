@@ -1,5 +1,44 @@
-[day 36]
+[day 36] 211018
 오전에 component 복습하고
 
 오후에 axios 
 
+>vue bootstrap 사용함.
+> vue-router 설치 및 사용
+
+
+[day37]
+> tab 만들기
+- FileReader() : 텍스트로 압축(텍스트로 변환)
+- URL.createObjectURL() : 이미지의 가상 URL을 생성해줌
+
+> 사진 업로드
+> 필터 적용
+
+> props 대신 slot 이용하기 
+- 부모가 가진 데이터 전송
+    1. props 이용
+    2. slot 이용
+- slot 은 속성에 사용불가.
+- html 태그에만 사용됨.
+
+- slot 여러개 사용하는 방법
+      <slot name="x"></slot>
+      <slot name="y"></slot>
+
+<!--부모가 가진 데이터 전송 : 1.props 2.slot (HTML태그에만 적용) -->
+            <!-- <template v-slot:x>데이터1</template>
+            <template v-slot:y>데이터2</template> -->
+
+            <!-- 부모는 {{자식데이터}} 이렇게 사용함 -->
+            <!-- <template v-slot:default="Nammming"><p class="text">{{Nammming.msg}}</p></template> -->
+
+> 하위 -> 상위 : mitt 사용 or 사용자 이벤트
+- mitt 설치 : npm install mitt
+- main.js에 설정 : import mitt from 'mitt'
+      mitt로 데이터 전송하는 방법
+      1. this.emitter.emit('name', 'data')으로 보내기
+      2. this.emitter.on('name', (data) => {  })으로 수신하기.
+
+> vuex
+- 데이터를 한 곳에 둠 : js파일
